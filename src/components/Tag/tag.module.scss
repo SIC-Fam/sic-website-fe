@@ -1,0 +1,13 @@
+@mixin tag-common {
+  @apply border font-light py-0.5 px-2 uppercase inline-block text-[10px] mr-3;
+}
+
+.tag-head {
+  @include tag-common;
+  @apply border-primary bg-primary text-white;
+}
+
+.tag-item {
+  @include tag-common;
+  @apply border-text text-text;
+}
