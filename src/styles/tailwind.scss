@@ -4,6 +4,15 @@
 
 @layer base {
   body {
-    @apply font-mono text-text bg-dark-main;
+    @apply font-mono text-text bg-dark-main font-light;
+  }
+}
+
+@layer components {
+  .wrapper {
+    @apply mx-auto container xxl:max-w-[1200px];
+    @media (max-width: 768px) and (min-width: 520px) {
+      max-width: 520px;
+    }
   }
 }

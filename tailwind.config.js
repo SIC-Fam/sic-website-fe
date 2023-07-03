@@ -21,6 +21,9 @@ module.exports = {
       dark: { main: '#171C1A', light: '#2E3230' },
       text: '#808080',
       error: '#F93D3D',
+      current: 'currentColor',
+      white: '#fff',
+      transparent: 'transparent',
     },
     fontSize: {
       xs: '0.875rem', // 14px
@@ -37,7 +40,11 @@ module.exports = {
       sans: ['Helvetice', 'sans-serif'],
       mono: ['JetBrains Mono', 'monospace'],
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        primary: '0px 1px 8px 1px rgba(245, 121, 48, 0.25)',
+      },
+    },
   },
   plugins: [],
 };

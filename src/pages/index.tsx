@@ -1,14 +1,10 @@
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
 
 export default function Home() {
-  const { t } = useTranslation();
-  return <>{t('helloWorld')}</>;
+  const router = useRouter();
+  return (
+    <div className="grid place-items-center h-screen">
+      <button onClick={() => router.push('/_dev')}>Go to dev page</button>
+    </div>
+  );
 }
-
-export const getServerSideProps = async (props) => {
-  const { locale } = props;
-  return {
-    props: { ...(await serverSideTranslations(locale, ['common'])), locale },
-  };
-};

@@ -1,0 +1,50 @@
+@mixin btn-common {
+  @apply px-6 py-2 duration-150;
+  &:hover {
+    @apply tracking-widest;
+  }
+}
+
+@mixin btn-outlined {
+  @apply border;
+}
+
+@mixin btn-primary-outlined {
+  @include btn-outlined;
+  @apply bg-dark-main  border-primary text-primary;
+}
+
+@mixin btn-inherit-outlined {
+  @include btn-outlined;
+  @apply bg-dark-main  border-current text-current;
+}
+
+//  OUTLINED
+
+.btn-primary-outlined {
+  @include btn-common;
+  @include btn-primary-outlined;
+}
+
+.btn-inherit-outlined {
+  @include btn-common;
+  @include btn-inherit-outlined;
+}
+
+//  TEXT
+
+.btn-primary-text {
+  @include btn-common;
+  @apply text-primary;
+}
+
+.btn-inherit-text {
+  @include btn-common;
+  @apply text-current;
+}
+
+//  ICON
+
+.btn-icon {
+  @apply ml-2;
+}
