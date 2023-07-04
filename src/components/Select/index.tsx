@@ -34,7 +34,7 @@ const SICSelect = (props: SelectType) => {
       <Button
         onClick={toggleOpenCollapse}
         ripple={false}
-        className="font-mono text-sm w-full py-2 px-3 capitalize hover:shadow-primary shadow-none text-left flex justify-between bg-dark-main border border-text color-text focus:outline-none"
+        className="font-mono text-sm w-full py-2 px-3 capitalize hover:shadow-primary shadow-none text-left flex justify-between bg-dark-main border border-text color-text focus:outline-none font-light text-text"
         style={
           toggleCollapse
             ? {
