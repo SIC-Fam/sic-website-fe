@@ -1,3 +1,4 @@
+import SICAccordion from '@components/Accordion';
 import SICButton from '@components/Button';
 import SICInput from '@components/Input';
 import SICSelect from '@components/Select';
@@ -13,8 +14,12 @@ const DevHead = ({ children }) => {
 export default function Dev() {
   const { t } = useTranslation();
   const [select, setSelect] = useState('');
+  const [multiSelect, setMultiSelect] = useState<Array<string>>([]);
   const onChangeSelect = (value: string) => {
     setSelect(value);
+  };
+  const onChangeMuliSelect = (value: string) => {
+    setMultiSelect((prev) => (prev.includes(value) ? [...prev.filter((_v) => _v !== value)] : [...prev, value]));
   };
   return (
     <div>
@@ -75,8 +80,8 @@ export default function Dev() {
           <SICSelect
             multiple
             label="Select SIC"
-            onChangeSelect={onChangeSelect}
-            value={select}
+            onChangeMultiSelect={onChangeMuliSelect}
+            value={multiSelect}
             data={[
               {
                 label: 'Example 1',
@@ -89,6 +94,36 @@ export default function Dev() {
               {
                 label: 'Example 3',
                 value: '3',
+              },
+            ]}
+          />
+        </div>
+        <div>
+          <DevHead>Accordion</DevHead>
+          <SICAccordion
+            data={[
+              {
+                header: 'Texted',
+                body: 'Lorem',
+              },
+            ]}
+          />
+        </div>
+        <div>
+          <DevHead>List Accordion</DevHead>
+          <SICAccordion
+            data={[
+              {
+                header: 'Texted 1',
+                body: 'Lorem 1',
+              },
+              {
+                header: 'Texted 2',
+                body: 'Lorem 2',
+              },
+              {
+                header: 'Texted 3',
+                body: 'Lorem 3',
               },
             ]}
           />
