@@ -13,12 +13,12 @@
   },
   "lint-staged": {
     "*": [
-      "yarn lint",
-      "git add"
+      "yarn format",
+      "git add ."
     ],
-    "./**/*.{ts,tsx,js}": [
-      "yarn lint",
-      "git add"
+    "./**/*.{ts,js,tsx}": [
+      "yarn format",
+      "git add ."
     ]
   },
   "husky": {
