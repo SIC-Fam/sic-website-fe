@@ -4,7 +4,7 @@ const { i18n } = require('./next-i18next.config');
 const path = require('path');
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   i18n,
   trailingSlash: true,
   sassOptions: {
