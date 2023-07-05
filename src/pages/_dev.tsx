@@ -14,6 +14,8 @@ const DevHead = ({ children }) => {
 export default function Dev() {
   const { t } = useTranslation();
   const [select, setSelect] = useState('');
+  // const router = useRouter();
+  // const [auth] = useRecoilState(authAtom)
   const [multiSelect, setMultiSelect] = useState<Array<string>>([]);
   const onChangeSelect = (value: string) => {
     setSelect(value);
@@ -21,6 +23,12 @@ export default function Dev() {
   const onChangeMuliSelect = (value: string) => {
     setMultiSelect((prev) => (prev.includes(value) ? [...prev.filter((_v) => _v !== value)] : [...prev, value]));
   };
+  // useEffect(() => {
+  //   if (auth === null) {
+  //     router.push('/');
+  //     console.log(auth)
+  //   }
+  // }, [auth, router])
   return (
     <div>
       <div className="wrapper grid grid-cols-2 gap-10">
