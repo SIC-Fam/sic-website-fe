@@ -1,4 +1,4 @@
-const withMT = require("@material-tailwind/react/utils/withMT");
+const withMT = require('@material-tailwind/react/utils/withMT');
 
 module.exports = withMT({
   // important: true,
@@ -45,6 +45,17 @@ module.exports = withMT({
     extend: {
       boxShadow: {
         primary: '0px 1px 8px 1px rgba(245, 121, 48, 0.25)',
+        glove: '0px 5px 10px -5px rgba(245, 121, 48, 0.25);'
+      },
+      colors: {
+        primary: '#F57930',
+        secondary: '#864B25',
+        dark: { main: '#171C1A', light: '#2E3230' },
+        text: '#808080',
+        error: '#F93D3D',
+        current: 'currentColor',
+        white: '#fff',
+        transparent: 'transparent',
       },
     },
   },
