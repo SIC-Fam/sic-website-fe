@@ -1,13 +1,19 @@
 import SICAccordion from '@components/Accordion';
+import Banner from '@components/Banner';
 import SICButton from '@components/Button';
 import { SICCard, SICProfileCard } from '@components/Card';
+import Footer from '@components/Footer';
 import SICInput from '@components/Input';
-import SICNavbar, { NavbarListType } from '@components/Navigation';
+import SICNavbar from '@components/Navigation';
+import Post from '@components/Post';
 import SICSelect from '@components/Select';
 import SICTag from '@components/Tag';
+import navAtom from '@state/nav';
+import moment from 'moment';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 
 const DevHead = ({ children }) => {
   return <div className="bg-primary p-2 grid place-items-center text-white my-4">{children}</div>;
@@ -17,7 +23,7 @@ export default function Dev() {
   const { t } = useTranslation();
   const [select, setSelect] = useState('');
   // const router = useRouter();
-  // const [auth] = useRecoilState(authAtom)
+  const [navList] = useRecoilState(navAtom);
   const [multiSelect, setMultiSelect] = useState<Array<string>>([]);
   const onChangeSelect = (value: string) => {
     setSelect(value);
@@ -31,45 +37,10 @@ export default function Dev() {
   //     console.log(auth)
   //   }
   // }, [auth, router])
-  const navList: Array<NavbarListType> = [
-    {
-      name: 'home',
-      href: '',
-    },
-    {
-      name: 'about us',
-      href: '',
-    },
-    {
-      name: 'groups',
-      href: '',
-      menus: [
-        {
-          label: 'technical group',
-          href: '',
-        },
-        {
-          label: 'media group',
-          href: '',
-        },
-        {
-          label: 'study group',
-          href: '',
-        },
-        {
-          label: 'support group',
-          href: '',
-        },
-      ],
-    },
-    {
-      name: 'posts',
-      href: '',
-    },
-  ];
   return (
     <>
       <SICNavbar list={navList} />
+      <Banner width={'100%'} height={'100vh'} />
       <div className="py-10">
         <div className="wrapper grid grid-cols-2 gap-10">
           <div>
@@ -201,8 +172,22 @@ export default function Dev() {
               />
             </div>
           </div>
+          <div className="flex flex-col items-center">
+            <div className="w-full">
+              <DevHead>Post</DevHead>
+            </div>
+            <div className="w-96">
+              <Post
+                image="/images/demo-post.png"
+                title="Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem"
+                summary="Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem"
+                datePublic={moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}
+              />
+            </div>
+          </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

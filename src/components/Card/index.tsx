@@ -18,7 +18,7 @@ type CardProfileType = {
 const SICCard = (props: CardType) => {
   const { symbol, title, content } = props;
   return (
-    <Card className="bg-transparent shadow-primary">
+    <Card className="bg-transparent hover:shadow-primary transition-shadow duration-150 flex-1">
       <CardBody className="flex flex-col items-center gap-5 px-4 pt-4 pb-16">
         <Avatar src={symbol} variant="rounded" />
         <Typography variant="h5" color="blue-gray" className="mb-2 text-center font-mono text-sm text-white">
@@ -44,7 +44,7 @@ const SICProfileCard = (props: CardProfileType) => {
       <CardFooter className="flex justify-center gap-7 pt-2">
         <Tooltip content="Facebook">
           <Typography as="a" href={social} variant="lead" color="blue" textGradient target="_blank">
-            <Facebook color="#F57930" />
+            <Facebook fill="#F57930" strokeWidth={0} />
           </Typography>
         </Tooltip>
       </CardFooter>

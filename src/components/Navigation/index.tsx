@@ -46,7 +46,13 @@ const SICNavbar = (props: NavbarType) => {
   const { logo, list } = props;
 
   return (
-    <Navbar fullWidth color="transparent" shadow className="sticky top z-10 mx-auto shadow-primary">
+    <Navbar
+      fullWidth
+      color="transparent"
+      shadow
+      style={{ zIndex: 10 }}
+      className="fixed mx-auto shadow-primary bg-dark-main"
+    >
       <div className="flex items-center justify-between text-white font-mono w-5/6 mx-auto">
         <Avatar src={logo || '/images/logo.png'} />
         <div className="hidden lg:block">
