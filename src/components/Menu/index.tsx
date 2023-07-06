@@ -36,7 +36,7 @@ const SICMenu = (props: MenuListType) => {
           <ChevronDown className={`h-3.5 w-3.5 transition-transform ${openMenu ? 'rotate-180' : ''}`} />
         </Button>
       </MenuHandler>
-      <MenuList {...triggers} className="bg-dark-light px-0">
+      <MenuList {...triggers} className="bg-dark-light px-0 border-none">
         {menus.length > 0 &&
           menus.map((_m, index) =>
             _m.subMenu ? (

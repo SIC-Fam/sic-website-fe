@@ -45,7 +45,7 @@ module.exports = withMT({
     extend: {
       boxShadow: {
         primary: '0px 1px 8px 1px rgba(245, 121, 48, 0.25)',
-        glove: '0px 5px 10px -5px rgba(245, 121, 48, 0.25);'
+        glove: '0px 5px 10px -5px rgba(245, 121, 48, 0.25);',
       },
       colors: {
         primary: '#F57930',
@@ -56,6 +56,15 @@ module.exports = withMT({
         current: 'currentColor',
         white: '#fff',
         transparent: 'transparent',
+      },
+      keyframes: {
+        blink: {
+          '0%': { boxShadow: 'none', scale: '1' },
+          '100%': { boxShadow: '0px 1px 8px 5px rgba(245, 121, 48, 0.25)', scale: '1.02' },
+        },
+      },
+      animation: {
+        blink: 'blink 2s ease-in-out',
       },
     },
   },
