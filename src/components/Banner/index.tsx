@@ -1,7 +1,9 @@
 import SICButton from '@components/Button';
 import Play from '@components/icons/Play';
+import RegisterModal from '@containers/modal/RegisterModal';
 import { Typography } from '@material-tailwind/react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 type BannerType = {
   image?: string;
@@ -11,6 +13,15 @@ type BannerType = {
 };
 
 const Banner = (props: BannerType) => {
+  const [isOpenRegisterModal, setIsOpenRegisterModal] = useState<boolean>(false);
+
+  const handleOpenRegisterModal = () => {
+    setIsOpenRegisterModal(true);
+  };
+
+  const handleCloseRegisterModal = () => {
+    setIsOpenRegisterModal(false);
+  };
   return (
     <figure
       className={`${props.className}`}
@@ -19,15 +30,14 @@ const Banner = (props: BannerType) => {
         height: props.height,
       }}
     >
+      <RegisterModal open={isOpenRegisterModal} onClose={handleCloseRegisterModal} />
+
       <Image className="h-full w-full" src={props.image || '/images/banner.png'} alt="nature image" fill />
       <figcaption className="absolute inset-y-1/4 left-40">
         <div>
           <Typography className="text-white text-5xl font-mono">
             Students help students <br /> master{' '}
-            <Typography
-              as="span"
-              className="inline-block decoration-solid decoration-primary underline text-primary font-mono"
-            >
+            <Typography as="span" className="inline-block decoration-solid decoration-primary text-primary font-mono">
               technology
             </Typography>
             !
@@ -40,16 +50,15 @@ const Banner = (props: BannerType) => {
             .
           </Typography>
           <div className="flex justify-between items-center" style={{ width: '55%' }}>
-            <SICButton color="primary">Enroll to become our partner</SICButton>
+            <SICButton onClick={handleOpenRegisterModal} color="primary">
+              Enroll to become our partner
+            </SICButton>
             <Play
               color="#F57930"
               className="w-12 h-12 hover:shadow-primary rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
             />
           </div>
         </div>
-        {/* <Typography variant="h5" color="blue-gray">
-                    Growth
-                </Typography> */}
       </figcaption>
     </figure>
   );

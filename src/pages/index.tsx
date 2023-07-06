@@ -11,6 +11,7 @@ import { useRecoilState } from 'recoil';
 export default function Home() {
   const [postList] = useRecoilState(postsAtom);
   const liveYear = moment().diff(moment('2001-10-18'), 'year') + 1;
+
   return (
     <div className="h-screen">
       <LayoutDefault>

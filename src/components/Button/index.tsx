@@ -7,9 +7,10 @@ import ArrowRight from '@components/icons/ArrowRight';
 interface SICButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: 'primary' | 'inherit';
   variant?: 'outlined' | 'text';
+  className?: string;
 }
 
-const SICButton = ({ color = 'primary', variant = 'outlined', children, ...props }: SICButtonProps) => {
+const SICButton = ({ color = 'primary', variant = 'outlined', children, className = '', ...props }: SICButtonProps) => {
   return (
     <button
       {...props}
@@ -20,11 +21,12 @@ const SICButton = ({ color = 'primary', variant = 'outlined', children, ...props
         {
           [styles[`btn-${color}-text`] as string]: variant === 'text',
         },
-        ['flex items-center'],
+        ['flex items-center justify-center'],
+        [className],
       )}
     >
       {children}
-      <ArrowRight className={styles['btn-icon']} />
+      {variant !== 'text' && <ArrowRight className={styles['btn-icon']} />}
     </button>
   );
 };

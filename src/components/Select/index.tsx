@@ -2,7 +2,7 @@ import ChevronDown from '@components/icons/ChevronDown';
 import { Button, Collapse, Card, List, ListItem, Checkbox, Typography } from '@material-tailwind/react';
 import React from 'react';
 
-type SelectDataType = {
+export type SelectDataType = {
   label: string;
   value: string;
 };
@@ -14,12 +14,19 @@ type SelectType = {
   onChangeSelect?: any;
   onChangeMultiSelect?: any;
   multiple?: boolean;
+  name?: string;
 };
 
-const SICSelect = (props: SelectType) => {
-  const { label, data, value = '' || [], onChangeSelect, multiple = false, onChangeMultiSelect } = props;
-
-  const [toggleCollapse, setToggleCollapse] = React.useState(false);
+const SICSelect = ({
+  label,
+  data,
+  value = '' || [],
+  onChangeSelect,
+  multiple = false,
+  onChangeMultiSelect,
+  ...props
+}: SelectType) => {
+  const [toggleCollapse, setToggleCollapse] = React.useState<boolean>(false);
 
   const handleSelect = (value: string) => {
     onChangeSelect && onChangeSelect(value);
@@ -33,8 +40,18 @@ const SICSelect = (props: SelectType) => {
     setToggleCollapse(!toggleCollapse);
   };
 
+  const getValueLabel = () => {
+    if (typeof value === 'string') {
+      return value === '' ? label : data.find((item) => item.value === value)?.label;
+    } else if (value.length === 0) {
+      return label;
+    } else {
+      return value.map((_v) => data.find((item) => item.value === _v)?.label).join(', ');
+    }
+  };
+
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <Button
         onClick={toggleOpenCollapse}
         ripple={false}
@@ -48,13 +65,7 @@ const SICSelect = (props: SelectType) => {
             : {}
         }
       >
-        {typeof value === 'string'
-          ? value === ''
-            ? label
-            : data.find((item) => item.value === value)?.label
-          : value.length === 0
-          ? label
-          : value.map((_v) => data.find((item) => item.value === _v)?.label).join(', ')}
+        {getValueLabel()}
         <ChevronDown
           style={{
             transform: toggleCollapse ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -62,7 +73,7 @@ const SICSelect = (props: SelectType) => {
           }}
         />
       </Button>
-      <Collapse open={toggleCollapse}>
+      <Collapse className="absolute top-full" open={toggleCollapse}>
         <Card
           className="w-full bg-text"
           style={{
@@ -83,13 +94,14 @@ const SICSelect = (props: SelectType) => {
                   </ListItem>
                 ) : (
                   <Checkbox
+                    name={props?.name || ''}
                     color="orange"
                     id={`${index}`}
                     className="px-1 py-1 rounded-none w-3.5 h-3.5"
                     key={index}
                     label={<Typography className="font-mono text-sm text-white">{item.label}</Typography>}
                     ripple={false}
-                    // value={item.value}
+                    checked={getValueLabel()?.includes(item.label)}
                     onChange={() => handleSelect(item.value)}
                   />
                 ),
