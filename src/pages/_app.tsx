@@ -10,6 +10,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <meta name="viewport" content="viewport-fit=cover" />
+        <title>SIC - Student Informatic Club</title>
       </Head>
       <RecoilRoot>
         <Component {...pageProps} />

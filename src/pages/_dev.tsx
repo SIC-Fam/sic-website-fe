@@ -4,6 +4,7 @@ import SICButton from '@components/Button';
 import { SICCard, SICProfileCard } from '@components/Card';
 import Footer from '@components/Footer';
 import SICInput from '@components/Input';
+import SICModal from '@components/Modal';
 import SICNavbar from '@components/Navigation';
 import Post from '@components/Post';
 import SICSelect from '@components/Select';
@@ -22,21 +23,19 @@ const DevHead = ({ children }) => {
 export default function Dev() {
   const { t } = useTranslation();
   const [select, setSelect] = useState('');
-  // const router = useRouter();
   const [navList] = useRecoilState(navAtom);
   const [multiSelect, setMultiSelect] = useState<Array<string>>([]);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
+
+  const handleToggle = () => {
+    setIsOpenModal((prev) => !prev);
+  };
   const onChangeSelect = (value: string) => {
     setSelect(value);
   };
   const onChangeMuliSelect = (value: string) => {
     setMultiSelect((prev) => (prev.includes(value) ? [...prev.filter((_v) => _v !== value)] : [...prev, value]));
   };
-  // useEffect(() => {
-  //   if (auth === null) {
-  //     router.push('/');
-  //     console.log(auth)
-  //   }
-  // }, [auth, router])
   return (
     <>
       <SICNavbar list={navList} />
@@ -183,6 +182,17 @@ export default function Dev() {
                 summary="Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem"
                 datePublic={moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}
               />
+            </div>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-full">
+              <DevHead>Modal</DevHead>
+            </div>
+            <div className="w-96">
+              <SICButton onClick={handleToggle}>Open Modal</SICButton>
+              <SICModal open={isOpenModal} onClose={handleToggle}>
+                hihi
+              </SICModal>
             </div>
           </div>
         </div>
