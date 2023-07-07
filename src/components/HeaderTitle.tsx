@@ -9,7 +9,7 @@ const HeadTitle = (props: HeadType) => {
     <div
       className={`${props?.color === 'primary' ? 'bg-primary text-white' : 'bg-transparent text-primary'} text-${
         props.position || 'left'
-      } font-mono uppercase text-4xl font-bold`}
+      } font-mono uppercase text-4xl font-bold mb-8`}
     >
       {props.children}
     </div>

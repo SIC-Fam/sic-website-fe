@@ -45,7 +45,7 @@ module.exports = withMT({
     extend: {
       boxShadow: {
         primary: '0px 1px 8px 1px rgba(245, 121, 48, 0.25)',
-        glove: '0px 5px 10px -5px rgba(245, 121, 48, 0.25);',
+        glove: '0px 5px 10px -5px rgba(245, 121, 48, 0.25)',
       },
       colors: {
         primary: '#F57930',

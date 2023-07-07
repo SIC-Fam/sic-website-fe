@@ -78,7 +78,7 @@ const RegisterModal = (props: RegisterModalProps) => {
   };
 
   return (
-    <SICModal className="border border-primary shadow-primary w-[950px]" {...props}>
+    <SICModal style={{ width: '995px' }} className="border border-primary shadow-primary" {...props}>
       <h1 className="text-white text-4xl font-medium mb-2">
         Become a member of <span className="text-primary">SIC Gang</span>
       </h1>

@@ -1,11 +1,13 @@
 import ChevronDown from '@components/icons/ChevronDown';
 import { Button, Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react';
+import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 export type MenuListType = {
   name: string;
   menus: Array<MenuType>;
+  className?: string;
 };
 
 export type MenuType = {
@@ -14,10 +16,9 @@ export type MenuType = {
   subMenu?: Array<MenuType>;
 };
 
-const SICMenu = (props: MenuListType) => {
-  const [openMenu, setOpenMenu] = useState(false);
-  const { name, menus } = props;
+const SICMenu = ({ name, menus, className = '' }: MenuListType) => {
   const router = useRouter();
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const triggers = {
     onMouseEnter: () => setOpenMenu(true),
@@ -27,9 +28,16 @@ const SICMenu = (props: MenuListType) => {
   return (
     <Menu open={openMenu} handler={setOpenMenu} placement="bottom-end">
       <MenuHandler
-        className={` ${
-          openMenu ? 'border-primary text-primary shadow-glove' : 'border-transparent text-white'
-        } gap-2 flex items-center border-b font-mono rounded-none text-sm hover:bg-transparent font-light uppercase`}
+        className={clsx(
+          {
+            'border-primary text-primary': openMenu || menus.map((menu) => menu.href).includes(router.pathname),
+            'border-transparent text-white': !openMenu,
+          },
+          [
+            'gap-2 flex items-center border-b-2 font-mono rounded-none text-sm hover:bg-transparent font-light uppercase outline-none',
+          ],
+          [className],
+        )}
       >
         <Button {...triggers} variant="text" ripple={false}>
           {name}

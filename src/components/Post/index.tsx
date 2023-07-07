@@ -12,7 +12,7 @@ const Post = (props: PostType) => {
   const { image, title, summary, datePublic } = props;
   return (
     <Card className="bg-transparent overflow-hidden rounded-none hover:shadow-primary transition-shadow cursor-pointer duration-300">
-      <CardHeader floated={false} shadow={false} color="transparent" className="m-0 rounded-none h-40">
+      <CardHeader floated={false} shadow={false} color="transparent" className="m-0 rounded-none h-[200px]">
         <Image
           src={image}
           alt="#"
@@ -31,7 +31,7 @@ const Post = (props: PostType) => {
           placement="bottom-start"
         >
           <div className="mt-3 text-primary text-sm font-mono flex justify-between items-center">
-            {title.length > 30 ? `${title.slice(0, 29)} ...` : title}
+            {title.length > 75 ? `${title.slice(0, 74)} ...` : title}
           </div>
         </Tooltip>
         <Typography variant="lead" className="mt-3 font-light font-mono text-text text-xs">
