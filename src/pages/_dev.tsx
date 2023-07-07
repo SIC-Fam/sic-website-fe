@@ -11,8 +11,6 @@ import SICSelect from '@components/Select';
 import SICTag from '@components/Tag';
 import navAtom from '@state/nav';
 import moment from 'moment';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 
@@ -21,7 +19,6 @@ const DevHead = ({ children }) => {
 };
 
 export default function Dev() {
-  const { t } = useTranslation();
   const [select, setSelect] = useState('');
   const [navListDev] = useRecoilState(navAtom);
   const [multiSelect, setMultiSelect] = useState<Array<string>>([]);
@@ -43,11 +40,6 @@ export default function Dev() {
       <div className="py-10">
         <div className="wrapper grid grid-cols-2 gap-10">
           <div>
-            <DevHead>i18n</DevHead>
-            {t('helloWorld')}
-          </div>
-
-          <div>
             <DevHead>Button Component</DevHead>
             <SICButton color="primary">Color primary</SICButton>
             <SICButton variant="text" color="primary">
@@ -62,14 +54,14 @@ export default function Dev() {
           </div>
           <div>
             <DevHead>Tag</DevHead>
-            <SICTag type="head">{t('helloWorld')}</SICTag>
-            <SICTag type="item">{t('helloWorld')}</SICTag>
+            <SICTag type="head">{'helloWorld'}</SICTag>
+            <SICTag type="item">{'helloWorld'}</SICTag>
           </div>
           <div>
             <DevHead>Input</DevHead>
-            <SICInput placeholder={t('helloWorld')} />
+            <SICInput placeholder={'helloWorld'} />
             <div className="p-2"></div>
-            <SICInput placeholder={t('helloWorld')} error />
+            <SICInput placeholder={'helloWorld'} error />
           </div>
           <div>
             <DevHead>Select</DevHead>
@@ -201,10 +193,3 @@ export default function Dev() {
     </>
   );
 }
-
-export const getServerSideProps = async (props) => {
-  const { locale } = props;
-  return {
-    props: { ...(await serverSideTranslations(locale, ['common'])), locale },
-  };
-};

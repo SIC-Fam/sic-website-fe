@@ -35,7 +35,7 @@ const Post = (props: PostType) => {
           </div>
         </Tooltip>
         <Typography variant="lead" className="mt-3 font-light font-mono text-text text-xs">
-          {summary.length > 150 ? `${summary.slice(0, 149)} ...` : summary}
+          {summary.length > 150 ? `${summary.slice(0, 140)} ...` : summary}
         </Typography>
       </CardBody>
       <CardFooter>
