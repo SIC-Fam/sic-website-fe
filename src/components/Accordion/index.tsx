@@ -9,14 +9,17 @@ type AccordionType = {
 
 type AccordionListType = {
   data: Array<AccordionType>;
+  // eslint-disable-next-line no-unused-vars
+  onChange?: (value: number) => void;
 };
 
 const SICAccordion = (props: AccordionListType) => {
-  const { data } = props;
-  const [toggleOpen, setToggleOpen] = useState<number | null>(null);
+  const { data, onChange } = props;
+  const [toggleOpen, setToggleOpen] = useState<number>(0);
 
   const handleToggleOpen = (value: number) => {
-    setToggleOpen((prev) => (prev === value ? null : value));
+    onChange && onChange(value);
+    setToggleOpen((prev) => (prev === value ? prev : value));
   };
 
   return data.length === 1 ? (
@@ -54,6 +57,7 @@ const SICAccordion = (props: AccordionListType) => {
         style={{
           borderBottomLeftRadius: '8px',
           borderBottomRightRadius: '8px',
+          lineHeight: '2rem',
         }}
         className="py-1 px-3 text-text font-mono text-sm bg-text text-white"
       >
@@ -100,12 +104,17 @@ const SICAccordion = (props: AccordionListType) => {
         </AccordionHeader>
         <AccordionBody
           style={
-            index === data.length - 1 && {
-              borderBottomLeftRadius: '8px',
-              borderBottomRightRadius: '8px',
-            }
+            index === data.length - 1
+              ? {
+                  borderBottomLeftRadius: '8px',
+                  borderBottomRightRadius: '8px',
+                  lineHeight: '2rem',
+                }
+              : {
+                  lineHeight: '2rem',
+                }
           }
-          className="py-1 px-3 text-text font-mono text-sm bg-text text-white"
+          className="py-1 px-3 text-text font-mono text-sm bg-primary25 text-white"
         >
           {item?.body}
         </AccordionBody>
