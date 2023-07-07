@@ -3,9 +3,10 @@ import { Card, CardHeader, CardBody, Typography, CardFooter, Tooltip, Avatar } f
 import Image from 'next/image';
 
 type CardType = {
-  symbol: string;
+  symbol?: string;
   title: string;
   content: string;
+  position?: string;
 };
 
 type CardProfileType = {
@@ -16,15 +17,15 @@ type CardProfileType = {
 };
 
 const SICCard = (props: CardType) => {
-  const { symbol, title, content } = props;
+  const { symbol, title, content, position } = props;
   return (
     <Card className="bg-transparent hover:shadow-primary transition-shadow duration-150 flex-1">
       <CardBody className="flex flex-col items-center gap-5 px-4 pt-4 pb-16">
-        <Avatar src={symbol} variant="rounded" />
-        <Typography variant="h5" color="blue-gray" className="mb-2 text-center font-mono text-sm text-white">
+        {symbol && <Avatar src={symbol} variant="rounded" />}
+        <Typography className={`mb-2 text-${position || 'left'} w-full font-mono text-sm text-white`}>
           {title}
         </Typography>
-        <Typography className="text-center font-mono text-xs text-text">{content}</Typography>
+        <Typography className={`text-${position || 'left'} font-mono text-xs text-text`}>{content}</Typography>
       </CardBody>
     </Card>
   );
@@ -34,7 +35,7 @@ const SICProfileCard = (props: CardProfileType) => {
   const { image, name, description, social } = props;
   return (
     <Card className="p-0 m-0 overflow-hidden bg-transparent border-b-2 shadow-primary border-primary">
-      <CardHeader floated={false} className="h-64 m-0 rounded-none">
+      <CardHeader floated={false} className="h-80 m-0 rounded-none">
         <Image src={image} alt="profile-picture" fill className="overflow-hidden" />
       </CardHeader>
       <CardBody className="text-center">

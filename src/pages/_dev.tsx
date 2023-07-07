@@ -23,7 +23,7 @@ const DevHead = ({ children }) => {
 export default function Dev() {
   const { t } = useTranslation();
   const [select, setSelect] = useState('');
-  const [navList] = useRecoilState(navAtom);
+  const [navListDev] = useRecoilState(navAtom);
   const [multiSelect, setMultiSelect] = useState<Array<string>>([]);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
 
@@ -38,7 +38,7 @@ export default function Dev() {
   };
   return (
     <>
-      <SICNavbar list={navList} />
+      <SICNavbar list={navListDev} />
       <Banner width={'100%'} height={'100vh'} />
       <div className="py-10">
         <div className="wrapper grid grid-cols-2 gap-10">

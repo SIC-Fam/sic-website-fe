@@ -11,9 +11,9 @@ const News = (props: NewsType) => {
 
   return (
     list && (
-      <div className="flex justify-between items-center flex-wrap gap-10">
+      <div className="grid grid-cols-3 grid-flow-row gap-10">
         {list.map((_l, _i) => (
-          <div key={_i} className="flex-1">
+          <div key={_i}>
             <Post image={_l.image} title={_l.title} summary={_l.summary} datePublic={_l.datePublic} />
           </div>
         ))}

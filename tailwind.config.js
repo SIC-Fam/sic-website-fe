@@ -49,6 +49,7 @@ module.exports = withMT({
       },
       colors: {
         primary: '#F57930',
+        primary25: 'rgba(245, 121, 48, 0.25)',
         secondary: '#864B25',
         dark: { main: '#171C1A', light: '#2E3230' },
         text: '#808080',
@@ -62,9 +63,14 @@ module.exports = withMT({
           '0%': { boxShadow: 'none', scale: '1' },
           '100%': { boxShadow: '0px 1px 8px 5px rgba(245, 121, 48, 0.25)', scale: '1.02' },
         },
+        slideup: {
+          '0%': { transform: 'translateY(-25)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
+        },
       },
       animation: {
         blink: 'blink 2s ease-in-out',
+        sideup: 'sideup 1s ease-in',
       },
     },
   },
