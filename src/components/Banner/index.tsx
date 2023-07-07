@@ -49,13 +49,13 @@ const Banner = (props: BannerType) => {
             </Typography>
             .
           </Typography>
-          <div className="flex justify-between items-center" style={{ width: '55%' }}>
+          <div className="flex items-center">
             <SICButton onClick={handleOpenRegisterModal} color="primary">
               Enroll to become our partner
             </SICButton>
             <Play
               color="#F57930"
-              className="w-12 h-12 hover:shadow-primary rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
+              className="ml-8 w-12 h-12 hover:shadow-primary rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
             />
           </div>
         </div>

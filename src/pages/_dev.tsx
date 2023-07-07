@@ -39,7 +39,7 @@ export default function Dev() {
   return (
     <>
       <SICNavbar list={navListDev} />
-      <Banner width={'100%'} height={'100vh'} />
+      <Banner width="100%" height="708px" />
       <div className="py-10">
         <div className="wrapper grid grid-cols-2 gap-10">
           <div>

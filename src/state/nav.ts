@@ -5,11 +5,11 @@ const navAtom = atom({
   default: [
     {
       name: 'home',
-      href: '',
+      href: '/',
     },
     {
       name: 'about us',
-      href: '',
+      href: '/about-us',
     },
     {
       name: 'groups',
