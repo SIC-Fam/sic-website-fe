@@ -14,11 +14,11 @@ const Partner = () => {
     },
     {
       value: 1,
-      href: '',
+      href: '/images/laptopAZ.jpeg',
     },
     {
       value: 2,
-      href: '',
+      href: '/images/bit.jpeg',
     },
   ];
   const handleChange = (value: number) => {
@@ -30,7 +30,13 @@ const Partner = () => {
         <SICAccordion data={partners} onChange={handleChange} />
       </div>
       <div className="flex-1 relative h-[360px]">
-        <Image fill sizes="100%" src={listImage.find((_v) => _v.value === image)?.href || ''} alt="#" />
+        <Image
+          className="object-contain"
+          fill
+          sizes="100%"
+          src={listImage.find((_v) => _v.value === image)?.href || ''}
+          alt="#"
+        />
       </div>
     </div>
   );
