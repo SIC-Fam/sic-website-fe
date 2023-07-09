@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import SICButton from '@components/Button';
-import InputBox, { InputLable } from './InputBox';
+import InputBox, { InputLable } from '../../../components/InputBox';
 import SICSelect from '@components/Select';
 import ErrorIcon from '@components/icons/Error';
 import clsx from 'clsx';
@@ -79,69 +79,72 @@ const RegisterModal = (props: RegisterModalProps) => {
 
   return (
     <SICModal style={{ width: '995px' }} className="border border-primary shadow-primary" {...props}>
-      <h1 className="text-white text-4xl font-medium mb-2">
-        Become a member of <span className="text-primary">SIC Gang</span>
-      </h1>
-      <p className="mb-2">
-        Please fill all the blank below so that we could contact with you when your information is register successfully
-      </p>
-      <p style={{ fontStyle: 'italic' }} className="text-xs text-white mb-8">
-        This form will automatically close after
-        <span className="text-primary underline"> 3 </span>days
-      </p>
-      <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-4">
-          {FIELD.map(({ name, placeholder }) => (
-            <InputBox
-              key={name}
-              name={name}
-              isRequired={true}
-              errorLabel={formik.errors[name]}
-              placeholder={placeholder}
-              value={formik.values[name]}
-              onChange={formik.handleChange}
-              error={!!formik.touched[name] && !!formik.errors[name]}
-            />
-          ))}
-          <div>
-            <InputLable isRequired text="Which group do you want to join" />
-            <SICSelect
-              multiple
-              name="groups"
-              label="Choose here"
-              onChangeMultiSelect={onSelectGroup}
-              value={groupChecked}
-              data={REGISTER_BAN}
-            />
-            {!!formik.errors.groups && (
-              <div className=" text-[10px] text-error italic mt-2 items-center flex">
-                <ErrorIcon />
-                <span className="ml-1 ">{formik.errors.groups}</span>
-              </div>
-            )}
+      <div style={{ padding: '3.5rem' }}>
+        <h1 className="text-white text-4xl font-medium mb-2">
+          Become a member of <span className="text-primary">SIC Gang</span>
+        </h1>
+        <p className="mb-2">
+          Please fill all the blank below so that we could contact with you when your information is register
+          successfully
+        </p>
+        <p style={{ fontStyle: 'italic' }} className="text-xs text-white mb-8">
+          This form will automatically close after
+          <span className="text-primary underline"> 3 </span>days
+        </p>
+        <form onSubmit={handleSubmit}>
+          <div className="grid grid-cols-2 gap-4">
+            {FIELD.map(({ name, placeholder }) => (
+              <InputBox
+                key={name}
+                name={name}
+                isRequired={true}
+                errorLabel={formik.errors[name]}
+                placeholder={placeholder}
+                value={formik.values[name]}
+                onChange={formik.handleChange}
+                error={!!formik.touched[name] && !!formik.errors[name]}
+              />
+            ))}
+            <div>
+              <InputLable isRequired text="Which group do you want to join" />
+              <SICSelect
+                multiple
+                name="groups"
+                label="Choose here"
+                onChangeMultiSelect={onSelectGroup}
+                value={groupChecked}
+                data={REGISTER_BAN}
+              />
+              {!!formik.errors.groups && (
+                <div className=" text-[10px] text-error italic mt-2 items-center flex">
+                  <ErrorIcon />
+                  <span className="ml-1 ">{formik.errors.groups}</span>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="mb-8 mt-4">
-          <InputLable isRequired text="Let us know more about you by putting your CV here" />
-          <input
-            type="file"
-            accept=".pdf"
-            className={clsx(
-              'border bg-transparent py-2 px-4 w-full rounded-lg outline-none text-white placeholder:text-text focus:border-primary border-text',
-            )}
-          />
-        </div>
+          <div className="mb-8 mt-4">
+            <InputLable isRequired text="Let us know more about you by putting your CV here" />
+            <input
+              type="file"
+              accept=".pdf"
+              className={clsx(
+                'border bg-transparent py-2 px-4 w-full rounded-lg outline-none text-white placeholder:text-text focus:border-primary border-text',
+              )}
+            />
+          </div>
 
-        <div className="flex">
-          <SICButton onClick={props?.onClose} type="button" className="w-full" color="inherit" variant="text">
-            Cancel
-          </SICButton>
-          <div className="w-8"></div>
-          <SICButton className="w-full" type="submit">
-            Join
-          </SICButton>
-        </div>
-      </form>
+          <div className="flex">
+            <SICButton onClick={props?.onClose} type="button" className="w-full" color="inherit" variant="text">
+              Cancel
+            </SICButton>
+            <div className="w-8"></div>
+            <SICButton className="w-full" type="submit">
+              Join
+            </SICButton>
+          </div>
+        </form>
+      </div>
     </SICModal>
   );
 };

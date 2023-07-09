@@ -1,6 +1,7 @@
 import SICButton from '@components/Button';
 import Play from '@components/icons/Play';
 import RegisterModal from '@containers/modal/RegisterModal';
+import VideoModal from '@containers/modal/VideoModal';
 import { Typography } from '@material-tailwind/react';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -14,6 +15,15 @@ type BannerType = {
 
 const Banner = (props: BannerType) => {
   const [isOpenRegisterModal, setIsOpenRegisterModal] = useState<boolean>(false);
+  const [isOpenVideoModal, setIsOpenVideoModal] = useState<boolean>(false);
+
+  const handleOpenVideoModal = () => {
+    setIsOpenVideoModal(true);
+  };
+
+  const handleCloseVideoModal = () => {
+    setIsOpenVideoModal(false);
+  };
 
   const handleOpenRegisterModal = () => {
     setIsOpenRegisterModal(true);
@@ -31,6 +41,7 @@ const Banner = (props: BannerType) => {
       }}
     >
       <RegisterModal open={isOpenRegisterModal} onClose={handleCloseRegisterModal} />
+      <VideoModal open={isOpenVideoModal} onClose={handleCloseVideoModal} />
 
       <Image className="h-full w-full" src={props.image || '/images/banner.png'} alt="nature image" fill />
       <figcaption className="absolute inset-y-1/4 left-40">
@@ -54,6 +65,7 @@ const Banner = (props: BannerType) => {
               Enroll to become our partner
             </SICButton>
             <Play
+              onClick={handleOpenVideoModal}
               color="#F57930"
               className="ml-8 w-12 h-12 hover:shadow-primary rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
             />

@@ -20,7 +20,7 @@ const SICModal = React.forwardRef<HTMLDivElement, SICModalProps>(
         <div
           ref={ref}
           className={clsx(
-            'overflow-y-auto max-h-[90vh] max-w-[95vw] p-14 bg-dark-main z-[11] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+            'overflow-y-auto max-h-[90vh] max-w-[95vw] bg-dark-main z-[11] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
             [className],
           )}
           {...props}
