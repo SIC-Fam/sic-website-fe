@@ -1,5 +1,4 @@
 import SICButton from '@components/Button';
-import FAQ from '@components/Faq';
 import HeadTitle from '@components/HeaderTitle';
 import News from '@components/News';
 import Ques from '@components/Ques';
