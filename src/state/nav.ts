@@ -35,7 +35,7 @@ const navAtom = atom({
     },
     {
       name: 'posts',
-      href: '',
+      href: '/posts',
     },
   ],
 });

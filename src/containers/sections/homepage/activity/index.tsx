@@ -44,7 +44,7 @@ const ActivitySection = () => {
         {ACTIVITY_DATA.map((activity, index) => (
           <div
             key={activity.title}
-            className="flex mb-8"
+            className="flex mb-8 items-center"
             style={{
               ...(index % 2 !== 0 && { flexDirection: 'row-reverse' }),
             }}
@@ -61,7 +61,7 @@ const ActivitySection = () => {
               </div>
             </div>
             <div className="flex-1 relative h-80">
-              <Image className="object-cover" fill sizes="100%" src={activity.image} alt="#" />
+              <Image className="object-cover object-center" fill sizes="100%" src={activity.image} alt="#" />
             </div>
           </div>
         ))}

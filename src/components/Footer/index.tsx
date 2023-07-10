@@ -29,7 +29,7 @@ const Footer = () => {
   const [navListItem] = useRecoilState(navAtom);
 
   return (
-    <footer className="flex w-full flex-row flex-wrap items-end justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 p-20 text-center md:justify-between">
+    <footer className="flex w-full flex-row flex-wrap items-end justify-center gap-y-6 gap-x-12 p-20 text-center md:justify-between">
       <div className="flex flex-col">
         <Avatar src={'/images/logo.png'} />
         <Typography className="font-normal font-mono mt-2">&copy; 2023 | All right reserved</Typography>
