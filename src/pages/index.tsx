@@ -11,20 +11,21 @@ import ActivitySection from '@containers/sections/homepage/activity';
 import LayoutDefault from '@layouts/LayoutDefault';
 import { Typography } from '@material-tailwind/react';
 import postsAtom from '@state/posts';
+import { toast } from 'react-toastify';
 import { useRecoilState } from 'recoil';
 
 export default function Home() {
   const [postList] = useRecoilState(postsAtom);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen relative">
       <LayoutDefault>
         <Banner width="100%" height={'100%'} />
         <div className="w-full px-32 bg-transparent border-b shadow-glove border-primary">
           <div className="py-14">
             <div className="flex justify-between mb-8 items-center">
               <HeadTitle>news</HeadTitle>
-              <SICButton variant="text" color="inherit">
+              <SICButton variant="text" color="inherit" onClick={() => toast('success')}>
                 SEE ALL --&gt;
               </SICButton>
             </div>
