@@ -31,7 +31,7 @@ const AboutSection = () => {
     <div className="w-full px-32 bg-transparent">
       <div className="py-14">
         <HeadTitle position={'center'}>about us</HeadTitle>
-        <div className="grid grid-cols-3 gap-32 mt-8">
+        <div className="grid grid-cols-3 gap-8 mt-8">
           {ABOUT_DATA.map((about) => (
             <SICCard
               key={about.title}

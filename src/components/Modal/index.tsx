@@ -16,11 +16,11 @@ const SICModal = React.forwardRef<HTMLDivElement, SICModalProps>(
 
     return (
       <>
-        <div className="fixed inset-0 h-screen w-full bg-[rgba(0,0,0,0.5)] z-10" onClick={onClose} />
+        <div className="fixed inset-0 h-screen w-full bg-[rgba(0,0,0,0.5)] z-[20]" onClick={onClose} />
         <div
           ref={ref}
           className={clsx(
-            'overflow-y-auto max-h-[90vh] max-w-[95vw] bg-dark-main z-[11] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+            'overflow-y-auto max-h-[90vh] max-w-[95vw] bg-dark-main z-[21] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
             [className],
           )}
           {...props}
