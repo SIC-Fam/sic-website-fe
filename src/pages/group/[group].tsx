@@ -44,7 +44,6 @@ const GroupPage = () => {
           shortDescription={data.shortDescription}
           leaderInfo={leader}
         />
-
         <MissionSection title={data.title} data={data.data} />
         <AdvantageSection />
       </div>
