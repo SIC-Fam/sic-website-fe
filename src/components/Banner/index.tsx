@@ -4,16 +4,25 @@ import RegisterModal from '@containers/modal/RegisterModal';
 import VideoModal from '@containers/modal/VideoModal';
 import { Typography } from '@material-tailwind/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
+import parse from 'html-react-parser';
 
 type BannerType = {
   image?: string;
   width: number | string;
   height: number | string;
   className?: string;
+  title?: string | ReactNode;
+  description?: string | ReactNode;
+  buttonLabel?: string;
 };
 
-const Banner = (props: BannerType) => {
+const Banner = ({
+  title = "Student help student <br> master <span className='text-primary'>technology</span>",
+  description = "Improve students's understanding and proficiency in using various <span className='text-primary'>technology</span>",
+  buttonLabel = 'Enroll to become our partner',
+  ...props
+}: BannerType) => {
   const [isOpenRegisterModal, setIsOpenRegisterModal] = useState<boolean>(false);
   const [isOpenVideoModal, setIsOpenVideoModal] = useState<boolean>(false);
 
@@ -34,7 +43,7 @@ const Banner = (props: BannerType) => {
   };
   return (
     <figure
-      className={`${props.className}`}
+      className={`flex items-center ${props.className}`}
       style={{
         width: props.width,
         height: props.height,
@@ -44,25 +53,15 @@ const Banner = (props: BannerType) => {
       <VideoModal open={isOpenVideoModal} onClose={handleCloseVideoModal} />
 
       <Image className="h-full w-full" src={props.image || '/images/banner.png'} alt="nature image" fill />
-      <figcaption className="absolute inset-y-1/4 left-40">
+      <figcaption className="wrapper z-10">
         <div>
-          <Typography className="text-white text-5xl font-mono">
-            Students help students <br /> master{' '}
-            <Typography as="span" className="inline-block decoration-solid decoration-primary text-primary font-mono">
-              technology
-            </Typography>
-            !
-          </Typography>
-          <Typography className="mt-2 mb-8 font-normal text-white text-sm font-mono">
-            {`Improve students's understanding and proficiency in using various `}
-            <Typography as="span" className="inline-block font-mono text-primary">
-              technology
-            </Typography>
-            .
+          <Typography className="text-white text-5xl font-mono">{parse(title + '')}</Typography>
+          <Typography className="mt-2 mb-8 font-normal text-text text-sm font-mono">
+            {parse(description + '')}
           </Typography>
           <div className="flex items-center">
             <SICButton onClick={handleOpenRegisterModal} color="primary">
-              Enroll to become our partner
+              {buttonLabel}
             </SICButton>
             <Play
               onClick={handleOpenVideoModal}

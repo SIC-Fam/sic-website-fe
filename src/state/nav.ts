@@ -17,19 +17,15 @@ const navAtom = atom({
       menus: [
         {
           label: 'technical group',
-          href: '',
+          href: '/group/technical',
         },
         {
           label: 'media group',
-          href: '',
+          href: '/group/media',
         },
         {
           label: 'study group',
-          href: '',
-        },
-        {
-          label: 'support group',
-          href: '',
+          href: '/group/study',
         },
       ],
     },

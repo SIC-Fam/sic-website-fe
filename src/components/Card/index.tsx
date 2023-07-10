@@ -45,7 +45,7 @@ const SICCard = ({ titleClass = '', symbol, title, content, position, disableHov
 const SICProfileCard = (props: CardProfileType) => {
   const { image, name, description, social } = props;
   return (
-    <Card className="p-0 m-0 overflow-hidden bg-transparent border-b-2 shadow-primary border-primary">
+    <Card className="p-0 m-0 overflow-hidden bg-transparent border-b-2 duration-150 hover:shadow-primary border-primary">
       <CardHeader floated={false} className="h-80 m-0 rounded-none">
         <Image src={image} alt="profile-picture" fill className="overflow-hidden object-cover" />
       </CardHeader>
