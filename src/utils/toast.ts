@@ -1,7 +1,7 @@
 import { Notification } from '@constants/enum';
 import { toast } from 'react-toastify';
 
-const toastNotification = (text, type) => {
+const toastNotification = (text: string, type: Notification) => {
   switch (type) {
     case Notification.success:
       toast(text, {

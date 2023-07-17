@@ -8,6 +8,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  publicRuntimeConfig: {
+    BASE_API: process.env.BASE_API,
+  },
 };
 
 module.exports = nextConfig;

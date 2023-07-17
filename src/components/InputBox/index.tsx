@@ -6,7 +6,7 @@ import styles from './inputLabel.module.scss';
 import clsx from 'clsx';
 
 interface InputBoxProps {
-  isRequired: boolean;
+  isRequired?: boolean;
   errorLabel?: string;
   placeholder: string;
   value: string;
@@ -31,7 +31,7 @@ export const InputLable = ({ text, isRequired }: InputLableProps) => {
 
 const InputBox = ({
   type,
-  isRequired,
+  isRequired = false,
   errorLabel,
   placeholder,
   value,

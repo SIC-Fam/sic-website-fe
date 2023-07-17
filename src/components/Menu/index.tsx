@@ -2,10 +2,10 @@ import ChevronDown from '@components/icons/ChevronDown';
 import { Button, Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 export type MenuListType = {
-  name: string;
+  name: string | ReactNode;
   menus: Array<MenuType>;
   className?: string;
 };
@@ -30,18 +30,21 @@ const SICMenu = ({ name, menus, className = '' }: MenuListType) => {
       <MenuHandler
         className={clsx(
           {
-            'border-primary text-primary': openMenu || menus.map((menu) => menu.href).includes(router.pathname),
+            'border-b-2': typeof name === 'string',
+            'border-primary text-primary': openMenu,
             'border-transparent text-white': !openMenu,
           },
           [
-            'gap-2 flex items-center border-b-2 font-mono rounded-none text-sm hover:bg-transparent font-light uppercase outline-none',
+            'gap-2 flex items-center  font-mono rounded-none text-sm hover:bg-transparent font-light uppercase outline-none',
           ],
           [className],
         )}
       >
         <Button {...triggers} variant="text" ripple={false}>
           {name}
-          <ChevronDown className={`h-3.5 w-3.5 transition-transform ${openMenu ? 'rotate-180' : ''}`} />
+          {typeof name === 'string' && (
+            <ChevronDown className={`h-3.5 w-3.5 transition-transform ${openMenu ? 'rotate-180' : ''}`} />
+          )}
         </Button>
       </MenuHandler>
       <MenuList {...triggers} className="bg-dark-light px-0 border-none">

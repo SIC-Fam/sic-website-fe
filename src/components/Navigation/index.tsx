@@ -3,6 +3,10 @@ import { Avatar, Navbar, Typography } from '@material-tailwind/react';
 import style from './style.module.scss';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
+import SICButton from '@components/Button';
+import { useRecoilState } from 'recoil';
+import { authAtom } from '@state/auth';
+import { logout } from '@services/auth';
 
 export type NavbarType = {
   logo?: string;
@@ -53,7 +57,18 @@ const NavList = (props: { list: Array<NavbarListType> }) => {
 };
 
 const SICNavbar = (props: NavbarType) => {
+  const router = useRouter();
   const { logo, list } = props;
+  const [user, setUser] = useRecoilState(authAtom);
+
+  const handleNavigateAuthPage = () => {
+    router.push('/auth');
+  };
+
+  const handleLogOut = () => {
+    logout();
+    setUser(null);
+  };
 
   return (
     <Navbar
@@ -64,8 +79,21 @@ const SICNavbar = (props: NavbarType) => {
     >
       <div className="flex items-center justify-between text-white font-mono w-5/6 mx-auto">
         <Avatar src={logo || '/images/logo.png'} />
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex">
           <NavList list={list} />
+          <div className="grid place-items-center ml-12">
+            {!user ? (
+              <SICButton variant="contained" color="primary" disabledHover onClick={handleNavigateAuthPage}>
+                Sign in
+              </SICButton>
+            ) : (
+              <>
+                <SICButton variant="contained" color="primary" disabledHover onClick={handleLogOut}>
+                  Log Out
+                </SICButton>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </Navbar>
