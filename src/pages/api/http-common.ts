@@ -1,34 +1,21 @@
 import axios from 'axios';
+import getConfig from 'next/config';
+const { publicRuntimeConfig } = getConfig();
 
-const accessToken = JSON.parse(localStorage.getItem('accessToken') || '');
+const accessToken = '';
+
 const client = axios.create({
-  baseURL: process.env.BASEURL || 'http://localhost:8188/api/v1',
+  baseURL: publicRuntimeConfig.BASE_API || 'http://localhost:8188/api/v1',
   headers: {
     Authorization: `Bearer ${accessToken}`,
   },
   timeout: 10000,
 });
 
-client.interceptors.request.use(
-  async (config) => {
-    if (accessToken) {
-      if (config) {
-        config.headers.Authorization = accessToken;
-      }
-    }
-    return config;
-  },
-  (error) => {
-    Promise.reject(error);
-  },
-);
-
 client.interceptors.response.use(
-  async (response) => {
-    return response;
-  },
+  (response) => response,
   (error) => {
-    Promise.reject(error);
+    return Promise.reject(error);
   },
 );
 

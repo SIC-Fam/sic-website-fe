@@ -1,8 +1,5 @@
 @mixin btn-common {
   @apply px-6 py-2 duration-150;
-  &:hover {
-    @apply tracking-widest;
-  }
 }
 
 @mixin btn-outlined {
@@ -17,6 +14,17 @@
 @mixin btn-inherit-outlined {
   @include btn-outlined;
   @apply bg-dark-main  border-current text-current;
+}
+
+@mixin btn-primary-contained {
+  @apply bg-primary text-white;
+}
+
+//  CONTAINED
+
+.btn-primary-contained {
+  @include btn-common;
+  @include btn-primary-contained;
 }
 
 //  OUTLINED
