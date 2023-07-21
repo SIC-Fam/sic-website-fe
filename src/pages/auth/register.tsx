@@ -39,7 +39,7 @@ const RegisterPage = () => {
       email: '',
       password: '',
       gender: 0,
-      role: 0,
+      role: 1,
     },
     validationSchema,
     onSubmit: (values) => {

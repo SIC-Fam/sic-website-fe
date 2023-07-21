@@ -27,6 +27,7 @@ export const login = async ({ username, password }) => {
   try {
     const response = await client.post<LoginBody, AxiosResponse<UserType>>('/auth/login', { username, password });
     localStorage.setItem('accessToken', JSON.stringify(response.data?.accessToken));
+    localStorage.setItem('user', JSON.stringify(response.data?.user));
     toastNotification('Login success', Notification.success);
     // not working
     // const { from } = customHistory?.location?.state || { from: { pathname: '/' } };
@@ -37,7 +38,7 @@ export const login = async ({ username, password }) => {
   }
 };
 
-export const register = async (body) => {
+export const register = async (body: any) => {
   try {
     const response = await client.post<RegisterBody, any>('/auth/register', body);
     toastNotification('Register success', Notification.success);
