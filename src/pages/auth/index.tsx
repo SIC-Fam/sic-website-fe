@@ -7,7 +7,7 @@ import Link from 'next/link';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { login } from '@services/auth';
-import AuthLaytout from '@layouts/AuthLaytout';
+import AuthLaytout from '@layouts/AuthLayout';
 import { useRecoilState } from 'recoil';
 import { authAtom } from '@state/auth';
 import { useRouter } from 'next/router';

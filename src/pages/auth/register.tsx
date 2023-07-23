@@ -4,7 +4,7 @@ import SICButton from '@components/Button';
 import Link from 'next/link';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import AuthLaytout from '@layouts/AuthLaytout';
+import AuthLaytout from '@layouts/AuthLayout';
 import { useRouter } from 'next/router';
 import { Radio } from '@material-tailwind/react';
 import { GenderType } from '@constants/enum';

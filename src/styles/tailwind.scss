@@ -10,7 +10,7 @@
 
 @layer components {
   .wrapper {
-    @apply mx-auto container xxl:max-w-[1200px];
+    @apply mx-auto container xxl:max-w-[1200px] px-2;
     @media (max-width: 768px) and (min-width: 520px) {
       max-width: 520px;
     }

@@ -34,7 +34,7 @@ const NavList = (props: { list: Array<NavbarListType> }) => {
               onClick={() => {
                 router.push(_l.href);
               }}
-              key={_i}
+              key={`header ${_l.name}`}
               as="li"
               variant="small"
               color="blue-gray"
@@ -75,10 +75,10 @@ const SICNavbar = (props: NavbarType) => {
       fullWidth
       color="transparent"
       shadow
-      className="fixed mx-auto bg-dark-main py-0 border-b border-b-[rgba(0,0,0,0.2)] z-[11]"
+      className="fixed mx-auto bg-dark-main py-0 border-b border-b-[rgba(0,0,0,0.2)] z-[11] "
     >
-      <div className="flex items-center justify-between text-white font-mono w-5/6 mx-auto">
-        <Avatar src={logo || '/images/logo.png'} />
+      <div className="flex items-center justify-between text-white font-mono w-5/6 mx-auto wrapper">
+        <Avatar src={logo || '/images/logo.png'} onClick={() => router.push('/')} className='my-3' />
         <div className="hidden lg:flex">
           <NavList list={list} />
           <div className="grid place-items-center ml-12">
