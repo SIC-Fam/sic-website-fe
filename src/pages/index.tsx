@@ -7,7 +7,7 @@ import Partner from '@components/Partner';
 import Ques from '@components/Ques';
 import AboutSection from '@containers/sections/homepage/about';
 import ActivitySection from '@containers/sections/homepage/activity';
-import LayoutDefault from '@layouts/LayoutDefault';
+import LayoutDefault from '@layouts/LayoutDefault/LayoutDefault';
 import { Typography } from '@material-tailwind/react';
 import postsAtom from '@state/posts';
 import { toast } from 'react-toastify';
@@ -23,7 +23,7 @@ export default function Home() {
         <div className="py-14">
           <div className="flex justify-between mb-16 items-center">
             <HeadTitle>news</HeadTitle>
-            <SICButton className='' variant="text" color="inherit" onClick={() => toast('success')}>
+            <SICButton className="" variant="text" color="inherit" onClick={() => toast('success')}>
               SEE ALL --&gt;
             </SICButton>
           </div>

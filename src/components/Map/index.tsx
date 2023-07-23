@@ -8,7 +8,7 @@ const Map = ({ className }: { readonly className?: string }) => {
   const mapZoom = 30;
   const size = 40;
   return (
-    <div className={clsx(['relative w-full'], [className])}>
+    <div className={clsx(['relative w-full z-10'], [className])}>
       <MapContainer center={mapCenter} zoom={mapZoom} className="h-full w-full">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
