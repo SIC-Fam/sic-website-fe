@@ -29,30 +29,30 @@ const Footer = () => {
   const [navListItem] = useRecoilState(navAtom);
 
   return (
-    <footer className="flex w-full flex-row flex-wrap items-end justify-center gap-y-6 gap-x-12 p-20 text-center md:justify-between">
+    <footer className="flex wrapper flex-row flex-wrap items-end gap-y-6 gap-x-12 py-20 text-center md:justify-between">
       <div className="flex flex-col">
         <Avatar src={'/images/logo.png'} />
         <Typography className="font-normal font-mono mt-2">&copy; 2023 | All right reserved</Typography>
       </div>
-      <div className="flex flex-col items-end">
+      <div className="md:flex flex-col items-end">
         <ul className="flex flex-wrap items-center">
           {CONTACT_INFORMATION.map((item) => (
-            <li className="ml-8" key={item.href}>
+            <li className="mr-8 md:mr-0 md:ml-8" key={item.href}>
               <a href={item.href} target="_blank">
                 {item.icon}
               </a>
             </li>
           ))}
         </ul>
-        <ul className="flex flex-wrap items-center mt-2">
+        <ul className="flex flex-wrap items-center mt-4">
           {navListItem.map((item) => (
             <>
               {!item?.menus && (
-                <li key={'footer-' + item.name}>
+                <li key={`footer ${item.name}`}>
                   <Typography
                     as="a"
                     href={item.href}
-                    className="font-normal text-sm text-text hover:text-primary uppercase font-mono ml-8"
+                    className="font-normal text-sm text-text hover:text-primary uppercase font-mono md:ml-8 mr-8 md:mr-0"
                   >
                     {item.name}
                   </Typography>

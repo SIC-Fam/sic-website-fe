@@ -12,7 +12,7 @@ const SICInput = ({ error = false, errorLabel, ...props }: SICInputProps) => {
     <>
       <input
         className={clsx(
-          'border bg-transparent py-2 px-4 w-full rounded-lg outline-none text-white placeholder:text-text',
+          'text-xs sm:text-sm border bg-transparent py-2 px-4 w-full rounded-lg outline-none text-white placeholder:text-text',
           error ? 'border-error focus:border-error placeholder:text-error' : 'focus:border-primary border-text',
           props?.className ? props.className : '',
         )}

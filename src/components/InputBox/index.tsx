@@ -23,7 +23,7 @@ interface InputLableProps {
 
 export const InputLable = ({ text, isRequired }: InputLableProps) => {
   return (
-    <div className={clsx(styles['input-label'])}>
+    <div className={clsx(styles['input-label'], ['text-xs sm:text-sm'])}>
       {text} <span className="text-error pl-1">{isRequired && '*'}</span>
     </div>
   );

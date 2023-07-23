@@ -8,10 +8,6 @@ const navAtom = atom({
       href: '/',
     },
     {
-      name: 'about us',
-      href: '/about-us',
-    },
-    {
       name: 'groups',
       href: '',
       menus: [

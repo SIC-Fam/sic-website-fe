@@ -1,4 +1,5 @@
 import '@styles/tailwind.scss';
+import '@styles/global.scss';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 import 'react-toastify/dist/ReactToastify.css';

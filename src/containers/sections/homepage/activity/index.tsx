@@ -2,6 +2,8 @@ import { SICCard } from '@components/Card';
 import HeadTitle from '@components/HeaderTitle';
 import React from 'react';
 import Image from 'next/image';
+import clsx from 'clsx';
+import { Typography } from '@material-tailwind/react';
 
 const ACTIVITY_DATA = [
   {
@@ -11,7 +13,7 @@ const ACTIVITY_DATA = [
     image: '/images/Activities-1.png',
   },
   {
-    title: 'Support for new students in enrollment.',
+    title: 'Support for new students.',
     content:
       'SIC always accompanies new students, standing by their side from “their first steps”, supporting them in profile declaration and completing enrollment procedures through various means, whether near or far, with just a few mouse clicks. In addition, online support channels and contact hotline are always available to address any questions or concerns for new students and parents.',
     image: '/images/Activities-2.png',
@@ -38,30 +40,31 @@ const ACTIVITY_DATA = [
 
 const ActivitySection = () => {
   return (
-    <div className="w-full bg-transparent py-14">
+    <div className="wrapper bg-transparent py-14">
       <HeadTitle position="center">our activities</HeadTitle>
-      <div>
+      <div className='mt-8'>
         {ACTIVITY_DATA.map((activity, index) => (
           <div
             key={activity.title}
-            className="flex mb-8 items-center"
-            style={{
-              ...(index % 2 !== 0 && { flexDirection: 'row-reverse' }),
-            }}
+            className={clsx(['lg:flex mb-10 lg:mb-20 items-center'], {
+              'flex-row-reverse': index % 2 === 0,
+            })}
           >
-            <div className="flex-1">
-              <div
-                style={{
-                  ...(index % 2 == 0
-                    ? { paddingLeft: '8%', paddingRight: '3%' }
-                    : { paddingRight: '8%', paddingLeft: '3%' }),
-                }}
-              >
-                <SICCard titleClass="text-2xl" disableHover title={activity.title} content={activity.content} />
-              </div>
-            </div>
             <div className="flex-1 relative h-80">
               <Image className="object-cover object-center" fill sizes="100%" src={activity.image} alt="#" />
+            </div>
+            <div className="flex-1 py-8">
+              <div
+                className={clsx({
+                  'lg:pl-[8%] lg:pr-[3%]': index % 2 !== 0,
+                  'lg:pl-[3%] lg:pr-[8%]': index % 2 === 0,
+                })}
+              >
+                <Typography className="text-lg sm:text-xl lg:text-2xl mb-8 w-full font-mono text-white font-medium">
+                  {activity.title}
+                </Typography>
+                <Typography className="font-mono text-xs text-text ">{activity.content}</Typography>
+              </div>
             </div>
           </div>
         ))}

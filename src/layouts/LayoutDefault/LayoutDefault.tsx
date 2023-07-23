@@ -1,6 +1,6 @@
 import FAQ from '@components/Faq';
 import Footer from '@components/Footer';
-import SICNavbar from '@components/Navigation';
+import SICNavbar from '@layouts/LayoutDefault/Navigation';
 import ScrollToTop from '@components/ScrollToTop';
 import navAtom from '@state/nav';
 import { useRecoilState } from 'recoil';

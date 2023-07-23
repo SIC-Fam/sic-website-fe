@@ -4,7 +4,7 @@ import SICButton from '@components/Button';
 import Link from 'next/link';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import AuthLaytout from '@layouts/AuthLaytout';
+import AuthLaytout from '@layouts/AuthLayout';
 import { useRouter } from 'next/router';
 import { Radio } from '@material-tailwind/react';
 import { GenderType } from '@constants/enum';
@@ -77,6 +77,9 @@ const RegisterPage = () => {
             name="gender"
             label="Male"
             defaultChecked
+            labelProps={{
+              class: 'text-xs sm:text-sm',
+            }}
           />
           <Radio
             onChange={() => formik.setFieldValue('gender', GenderType.Female)}
@@ -84,6 +87,9 @@ const RegisterPage = () => {
             value={GenderType.Female}
             name="gender"
             label="Female"
+            labelProps={{
+              class: 'text-xs sm:text-sm',
+            }}
           />
         </div>
         <p className="text-right mt-2 text-primary">

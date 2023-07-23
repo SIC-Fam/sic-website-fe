@@ -15,7 +15,7 @@ interface IntroduceSectionProps {
   };
 }
 
-const IntroduceSection = ({
+const  IntroduceSection = ({
   shortDescription,
   longDescription,
   leaderTitle,
@@ -25,13 +25,13 @@ const IntroduceSection = ({
   return (
     <>
       <div className="mt-14">
-        <h1 className="text-primary text-4xl font-medium">{shortDescription}</h1>
-        <p className="mt-4 ">{parse(longDescription)}</p>
+        <h1 className="text-primary text-xl md:text-2xl lg:text-4xl font-medium">{shortDescription}</h1>
+        <p className="mt-4 text-xs sm:text-sm ">{parse(longDescription)}</p>
       </div>
 
       <div className="mt-14">
-        <h1 className="text-primary text-4xl font-medium">{leaderTitle}</h1>
-        <p className="my-4">{parse(leaderDescription)}</p>
+        <h1 className="text-primary text-xl md:text-2xl lg:text-4xl font-medium">{leaderTitle}</h1>
+        <p className="my-4 text-xs sm:text-sm">{parse(leaderDescription)}</p>
         <SICProfileCard
           image={leaderInfo.image}
           name={leaderInfo.name}

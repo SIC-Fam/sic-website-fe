@@ -18,9 +18,9 @@ type BannerType = {
 };
 
 const Banner = ({
-  title = "Student help student <br> master <span className='text-primary'>technology</span>",
+  title = "Student help student master <span className='text-primary'>technology</span>",
   description = "Improve students's understanding and proficiency in using various <span className='text-primary'>technology</span>",
-  buttonLabel = 'Enroll to become our partner',
+  buttonLabel = 'Become our partner',
   ...props
 }: BannerType) => {
   const [isOpenRegisterModal, setIsOpenRegisterModal] = useState<boolean>(false);
@@ -55,8 +55,10 @@ const Banner = ({
       <Image className="h-full w-full" src={props.image || '/images/banner.png'} alt="nature image" fill />
       <figcaption className="wrapper z-10">
         <div>
-          <Typography className="text-white text-5xl font-mono">{parse(title + '')}</Typography>
-          <Typography className="mt-2 mb-8 font-normal text-text text-sm font-mono">
+          <Typography className="text-white text-xl sm:text-3xl md:text-5xl  font-mono">
+            {parse(title + '')}
+          </Typography>
+          <Typography className="mt-2 mb-8 font-normal text-text text-xs sm:text-sm font-mono">
             {parse(description + '')}
           </Typography>
           <div className="flex items-center">
@@ -66,7 +68,7 @@ const Banner = ({
             <Play
               onClick={handleOpenVideoModal}
               color="#F57930"
-              className="ml-8 w-12 h-12 hover:shadow-primary rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
+              className="ml-2 sm:ml-8 w-12 h-12 hover:shadow-primary rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
             />
           </div>
         </div>

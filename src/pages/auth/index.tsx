@@ -7,7 +7,7 @@ import Link from 'next/link';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { login } from '@services/auth';
-import AuthLaytout from '@layouts/AuthLaytout';
+import AuthLaytout from '@layouts/AuthLayout';
 import { useRecoilState } from 'recoil';
 import { authAtom } from '@state/auth';
 import { useRouter } from 'next/router';
@@ -46,7 +46,7 @@ const AuthPage = () => {
   });
   return (
     <AuthLaytout>
-      <h1 className="text-white text-xl font-semibold mb-8 text-center">
+      <h1 className="text-white text-lg md:text-xl font-semibold mb-8 text-center">
         Welcome to
         <br /> {parse(formatToPrimaryText('Student Informatic Club', ['Student Informatic Club']))}
       </h1>

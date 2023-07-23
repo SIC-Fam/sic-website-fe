@@ -2,7 +2,7 @@ import SICButton from '@components/Button';
 import HeadTitle from '@components/HeaderTitle';
 import News from '@components/News';
 import Ques from '@components/Ques';
-import LayoutDefault from '@layouts/LayoutDefault';
+import LayoutDefault from '@layouts/LayoutDefault/LayoutDefault';
 import moment from 'moment';
 import { toast } from 'react-toastify';
 
@@ -139,9 +139,9 @@ const Posts = () => {
     <div className="relative h-screen">
       <LayoutDefault>
         <div className="pt-8">
-          <div className="w-full px-32 bg-transparent border-b shadow-glove border-primary">
+          <div className="wrapper bg-transparent border-b shadow-glove border-primary">
             <div className="py-14">
-              <div className="flex justify-between mb-8 items-center">
+              <div className="flex justify-between mb-16 items-center">
                 <HeadTitle>news</HeadTitle>
                 <SICButton variant="text" color="inherit" onClick={() => toast('success')}>
                   More --&gt;
@@ -150,7 +150,7 @@ const Posts = () => {
               <News posts={postList} limit={6} />
             </div>
           </div>
-          <div className="w-full px-32 bg-transparent border-b shadow-glove border-primary">
+          <div className="wrapper bg-transparent border-b shadow-glove border-primary">
             <div className="py-14">
               <div className="flex justify-between mb-8 items-center">
                 <HeadTitle>technologies</HeadTitle>

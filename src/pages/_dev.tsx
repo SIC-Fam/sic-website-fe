@@ -5,7 +5,7 @@ import { SICCard, SICProfileCard } from '@components/Card';
 import Footer from '@components/Footer';
 import SICInput from '@components/Input';
 import SICModal from '@components/Modal';
-import SICNavbar from '@components/Navigation';
+import SICNavbar from '@layouts/LayoutDefault/Navigation';
 import Post from '@components/Post';
 import SICSelect from '@components/Select';
 import SICTag from '@components/Tag';

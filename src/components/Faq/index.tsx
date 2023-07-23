@@ -6,16 +6,16 @@ const Map = dynamic(() => import('@components/Map'), { ssr: false });
 
 const FAQ = () => {
   return (
-    <div className="grid grid-cols-3">
-      <Map />
+    <div className="lg:grid grid-cols-3 ">
+      <Map className="lg:h-full h-[300px]" />
       <div className="col-span-2">
-        <div className="p-14 flex flex-col font-mono gap-4">
-          <Typography className="text-4xl font-mono text-primary">Get in touch</Typography>
+        <div className="p-[8%] flex flex-col font-mono gap-4">
+          <Typography className="text-2xl md:text-4xl font-mono text-primary">Get in touch</Typography>
           <Typography className="font-sm text-text">
             If you have any questions, please leave your message below so that the SIC team can answer them
           </Typography>
           <form>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="md:grid grid-cols-2 gap-4">
               <InputBox
                 isRequired={true}
                 placeholder={'Your Full Name'}
