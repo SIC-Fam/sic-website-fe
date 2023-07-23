@@ -77,6 +77,9 @@ const RegisterPage = () => {
             name="gender"
             label="Male"
             defaultChecked
+            labelProps={{
+              class: 'text-xs sm:text-sm',
+            }}
           />
           <Radio
             onChange={() => formik.setFieldValue('gender', GenderType.Female)}
@@ -84,6 +87,9 @@ const RegisterPage = () => {
             value={GenderType.Female}
             name="gender"
             label="Female"
+            labelProps={{
+              class: 'text-xs sm:text-sm',
+            }}
           />
         </div>
         <p className="text-right mt-2 text-primary">

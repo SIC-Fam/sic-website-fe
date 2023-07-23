@@ -46,7 +46,7 @@ const AuthPage = () => {
   });
   return (
     <AuthLaytout>
-      <h1 className="text-white text-xl font-semibold mb-8 text-center">
+      <h1 className="text-white text-lg md:text-xl font-semibold mb-8 text-center">
         Welcome to
         <br /> {parse(formatToPrimaryText('Student Informatic Club', ['Student Informatic Club']))}
       </h1>

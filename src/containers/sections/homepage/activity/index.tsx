@@ -42,7 +42,7 @@ const ActivitySection = () => {
   return (
     <div className="wrapper bg-transparent py-14">
       <HeadTitle position="center">our activities</HeadTitle>
-      <div>
+      <div className='mt-8'>
         {ACTIVITY_DATA.map((activity, index) => (
           <div
             key={activity.title}

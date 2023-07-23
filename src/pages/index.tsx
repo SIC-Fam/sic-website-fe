@@ -21,7 +21,7 @@ export default function Home() {
       <Banner width="100%" height="100%" />
       <div className="wrapper bg-transparent border-b shadow-glove border-primary">
         <div className="py-14">
-          <div className="flex justify-between mb-8 items-center">
+          <div className="flex justify-between mb-16 items-center">
             <HeadTitle>news</HeadTitle>
             <SICButton className='' variant="text" color="inherit" onClick={() => toast('success')}>
               SEE ALL --&gt;
