@@ -1,14 +1,14 @@
-import SICButton from '@components/Button';
-import SICModal, { SICModalProps } from '@components/Modal';
-import SICSelect from '@components/Select';
-import ErrorIcon from '@components/icons/Error';
+import SICButton from '@components/atoms/Button';
+import SICModal, { SICModalProps } from '@components/atoms/Modal';
+import SICSelect from '@components/atoms/Select';
+import ErrorIcon from '@components/atoms/icons/Error';
 import { Notification } from '@constants/enum';
 import toastNotification from '@utils/toast';
 import clsx from 'clsx';
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
-import InputBox, { InputLable } from '../../../components/InputBox';
+import InputBox, { InputLable } from '@components/atoms/InputBox';
 import CloseConfirmModal from '../ConfirmModal/CloseConfirm';
 interface RegisterModalProps extends Omit<SICModalProps, 'children'> {}
 

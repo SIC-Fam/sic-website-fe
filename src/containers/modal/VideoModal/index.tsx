@@ -1,5 +1,5 @@
-import SICModal, { SICModalProps } from '@components/Modal';
-import Video from '@components/Video';
+import SICModal, { SICModalProps } from '@components/atoms/Modal';
+import Video from '@components/atoms/Video';
 
 interface VideoProps extends Omit<SICModalProps, 'children'> {}
 

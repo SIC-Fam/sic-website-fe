@@ -1,4 +1,4 @@
-import { SICProfileCard } from '@components/Card';
+import { SICProfileCard } from '@components/atoms/Card';
 import React from 'react';
 import parse from 'html-react-parser';
 

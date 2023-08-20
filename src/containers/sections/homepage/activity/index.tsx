@@ -1,5 +1,5 @@
-import { SICCard } from '@components/Card';
-import HeadTitle from '@components/HeaderTitle';
+import { SICCard } from '@components/atoms/Card';
+import HeadTitle from '@components/atoms/HeaderTitle';
 import React from 'react';
 import Image from 'next/image';
 

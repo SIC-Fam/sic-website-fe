@@ -1,11 +1,11 @@
-import FAQ from '@components/Faq';
-import Footer from '@components/Footer';
-import SICNavbar from '@components/Navigation';
-import ScrollToTop from '@components/ScrollToTop';
+import FAQ from '@components/atoms/Faq';
+import Footer from '@components/atoms/Footer';
+import SICNavbar from '@components/atoms/Navigation';
+import ScrollToTop from '@components/atoms/ScrollToTop';
 import navAtom from '@state/nav';
 import { useRecoilState } from 'recoil';
 
-const LayoutDefault = ({ children }) => {
+const LayoutDefault = ({ children }: any) => {
   const [navListItem] = useRecoilState(navAtom);
 
   return (

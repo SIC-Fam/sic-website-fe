@@ -1,5 +1,5 @@
-import SICButton from '@components/Button';
-import SICModal, { SICModalProps } from '@components/Modal';
+import SICButton from '@components/atoms/Button';
+import SICModal, { SICModalProps } from '@components/atoms/Modal';
 import { Typography } from '@material-tailwind/react';
 
 interface CloseConfirmModalProps extends Omit<SICModalProps, 'children'> {

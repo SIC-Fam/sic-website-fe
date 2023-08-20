@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 const navAtom = atom({
-  key: 'navList',
+  key: 'menu/navList',
   default: [
     {
       name: 'home',

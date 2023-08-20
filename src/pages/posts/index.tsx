@@ -1,171 +1,34 @@
-import SICButton from '@components/Button';
-import HeadTitle from '@components/HeaderTitle';
-import News from '@components/News';
-import Ques from '@components/Ques';
+import { Meta } from '@/components/meta';
+import { HttpResponse } from '@components/lib/api';
+import { NextPageWithLayout } from '@components/lib/next';
+import Posts from '@components/templates/Posts';
 import LayoutDefault from '@layouts/LayoutDefault';
-import moment from 'moment';
-import { toast } from 'react-toastify';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const Posts = () => {
-  const postList = [
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
+type Props = HttpResponse<null>;
+
+const Page: NextPageWithLayout<Props> = () => <Posts />;
+
+Page.getLayout = LayoutDefault;
+Page.getMeta = Meta(() => ({ title: 'SIC - Posts' }));
+
+export const getServerSideProps = async (context: any) => {
+  const { locale = 'en' } = context;
+
+  // check login
+  const checkLogin = true;
+  if (!checkLogin) {
+    const { res } = context;
+    res.writeHead(301, { Location: '/login' });
+    res.end();
+    return { isLogin: false };
+  }
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'warehouse/warehouseCommon'])),
     },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-    {
-      image: '/images/demo-post.png',
-      title: 'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      summary:
-        'Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem, Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem,Lorem ipsum solor sit amet Lorem ipsum solor sit ametLorem ipsum solor sit ametLorem',
-      datePublic: `${moment('2023-07-06').format('DD/MM/yyyy HH:mm:ss')}`,
-    },
-  ];
-  return (
-    <div className="relative h-screen">
-      <LayoutDefault>
-        <div className="pt-8">
-          <div className="w-full px-32 bg-transparent border-b shadow-glove border-primary">
-            <div className="py-14">
-              <div className="flex justify-between mb-8 items-center">
-                <HeadTitle>news</HeadTitle>
-                <SICButton variant="text" color="inherit" onClick={() => toast('success')}>
-                  More --&gt;
-                </SICButton>
-              </div>
-              <News posts={postList} limit={6} />
-            </div>
-          </div>
-          <div className="w-full px-32 bg-transparent border-b shadow-glove border-primary">
-            <div className="py-14">
-              <div className="flex justify-between mb-8 items-center">
-                <HeadTitle>technologies</HeadTitle>
-                <SICButton variant="text" color="inherit" onClick={() => toast('success')}>
-                  More --&gt;
-                </SICButton>
-              </div>
-              <News posts={postList} limit={6} />
-            </div>
-          </div>
-          <Ques />
-        </div>
-      </LayoutDefault>
-    </div>
-  );
+  };
 };
 
-export default Posts;
+export default Page;

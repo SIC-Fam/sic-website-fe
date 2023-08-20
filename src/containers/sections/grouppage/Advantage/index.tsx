@@ -1,10 +1,10 @@
 import React from 'react';
 
-import BulbIcon from '@components/icons/Bulb';
-import ShipIcon from '@components/icons/Ship';
-import WorldIcon from '@components/icons/World';
-import BookIcon from '@components/icons/Book';
-import PrizeIcon from '@components/icons/Prize';
+import BulbIcon from '@components/atoms/icons/Bulb';
+import ShipIcon from '@components/atoms/icons/Ship';
+import WorldIcon from '@components/atoms/icons/World';
+import BookIcon from '@components/atoms/icons/Book';
+import PrizeIcon from '@components/atoms/icons/Prize';
 
 const ADVANTAGES = [
   {
