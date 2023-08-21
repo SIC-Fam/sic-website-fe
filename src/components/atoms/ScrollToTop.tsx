@@ -8,7 +8,7 @@ const ScrollToTop = () => {
   };
   return (
     <div
-      className="w-16 h-16 rounded-full fixed bg-primary bottom-10 right-16 border border-primary hover:shadow-primary transition-shadow cursor-pointer"
+      className="w-10 h-10 rounded-full fixed bg-primary bottom-10 right-16 border border-primary hover:shadow-primary transition-shadow cursor-pointer"
       style={{
         zIndex: 999,
       }}

@@ -62,7 +62,7 @@ const SICNavbar = (props: NavbarType) => {
   const [user, setUser] = useRecoilState(authAtom);
 
   const handleNavigateAuthPage = () => {
-    router.push('/auth');
+    router.push('/auth/login');
   };
 
   const handleLogOut = () => {

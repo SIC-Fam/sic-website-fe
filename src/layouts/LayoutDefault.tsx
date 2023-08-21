@@ -7,7 +7,6 @@ import { useRecoilState } from 'recoil';
 
 const LayoutDefault = ({ children }: any) => {
   const [navListItem] = useRecoilState(navAtom);
-
   return (
     <div className="h-screen">
       <SICNavbar list={navListItem} />
