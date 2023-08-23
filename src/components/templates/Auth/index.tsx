@@ -13,8 +13,9 @@ const FIELD = [
 
 const AuthPage = () => {
   const [values, handles] = useLogin();
-  const { isLoading, errors, touched } = values;
+  const { isLoading, errors, touched, userDetail } = values;
   const { handleSubmit, handleChange } = handles;
+  console.log(userDetail);
   return (
     <AuthLaytout>
       <h1 className="text-white text-xl font-semibold mb-8 text-center">

@@ -3,28 +3,27 @@ import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { getToken, removeToken } from './token';
 
-const accessToken = '';
-
 const client = axios.create({
   baseURL: 'http://localhost:8089/api/v',
-  // withCredentials: true,
+  timeout: 30000,
   headers: {
-    Authorization: `Bearer ${accessToken}`,
+    'Content-Type': 'application/json',
   },
-  timeout: 10000,
+  // paramsSerializer: {
+  //   serialize: (params: any) =>
+  //     queryString.stringify(params, { arrayFormat: 'comma' }),
+  // },
 });
 
 export const HttpCommon = ({ children }: any) => {
   const router = useRouter();
   const { pathname } = router;
-  console.log(pathname);
   const middlewareRequest = async (config: any) => {
     try {
       let temp = {
         ...config,
         headers: {
           ...config?.headers,
-          'Accept-Language': 'vi',
         },
       };
       if (config?.disableToken) {
@@ -32,12 +31,12 @@ export const HttpCommon = ({ children }: any) => {
       }
       const tokenAccess: any = JSON.parse(getToken() ?? '{}');
 
-      if (tokenAccess?.accessToken) {
+      if (tokenAccess) {
         return {
           ...temp,
           headers: {
             ...temp.headers,
-            Authorization: `Bearer ${tokenAccess?.accessToken}`,
+            Authorization: `Bearer ${tokenAccess}`,
           },
         };
       }

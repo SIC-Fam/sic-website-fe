@@ -1,15 +1,16 @@
+import { removeToken, setToken } from '@pages/api/token';
 import { loginService } from '@services/auth';
 import { authAtom } from '@state/auth';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { loginSchema } from './schema';
 
 const useLogin = () => {
   const [dataResult, setDataResult] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const setAuth = useSetRecoilState(authAtom);
+  const [userDetail, setUserDetail] = useRecoilState(authAtom);
   const initialValues = {
     username: '',
     password: '',
@@ -18,13 +19,15 @@ const useLogin = () => {
   const { mutate: mutateLoginService } = useMutation(loginService, {
     onSuccess: (res: any) => {
       if (res) {
-        setDataResult(res);
-        setAuth(res.accessToken);
+        setDataResult(res.data);
+        setUserDetail(res.data);
+        setToken(res.data.accessToken);
       }
       setIsLoading(false);
     },
     onError: (error: any) => {
       console.log(error);
+      removeToken();
       setIsLoading(false);
     },
   });
@@ -47,6 +50,7 @@ const useLogin = () => {
       isLoading,
       touched,
       values,
+      userDetail,
     },
     { handleSubmit, handleChange },
   ] as const;

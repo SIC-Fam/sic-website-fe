@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 const authAtom = atom({
-  key: 'auth/user',
+  key: 'user',
   default: typeof window !== 'undefined' && (localStorage.getItem('accessToken') || null),
 });
 
