@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
-import InputBox, { InputLable } from '@components/atoms/InputBox';
 import SICButton from '@components/atoms/Button';
-import Link from 'next/link';
-import * as yup from 'yup';
-import { useFormik } from 'formik';
-import AuthLaytout from '@layouts/AuthLaytout';
-import { useRouter } from 'next/router';
-import { Radio } from '@material-tailwind/react';
+import InputBox, { InputLable } from '@components/atoms/InputBox';
 import { GenderType } from '@constants/enum';
-import { register } from '@services/auth';
+import AuthLaytout from '@layouts/AuthLaytout';
+import { Radio } from '@material-tailwind/react';
+import Link from 'next/link';
+import useAuth from './useAuth';
 
 const FIELD = [
   { name: 'fullname', placeholder: 'Your username', required: true },
@@ -18,60 +14,30 @@ const FIELD = [
 ];
 
 const RegisterPage = () => {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [values, handles] = useAuth();
+  const { isLoading, errorsRegister, touchedRegister, valuesRegister } = values;
+  const { handleChangeRegister, handleSubmitRegister, setFieldValueRegister } = handles;
 
-  const validationSchema = yup.object().shape({
-    fullname: yup.string().required('This field is required'),
-    username: yup.string().required('This field is required'),
-    email: yup.string().email('Invalid email').required('This field is required'),
-    password: yup
-      .string()
-      .required('This field is required')
-      .matches(/.*\d.*/, 'Your password need to have at least 1 number'),
-    gender: yup.boolean().required('This field is required'),
-  });
-
-  const formik = useFormik({
-    initialValues: {
-      fullname: '',
-      username: '',
-      email: '',
-      password: '',
-      gender: 0,
-      role: 1,
-    },
-    validationSchema,
-    onSubmit: (values) => {
-      setIsLoading(true);
-      register(values).then((response) => {
-        if (response?.status === 200) {
-          router.push('/auth');
-        }
-        setIsLoading(false);
-      });
-    },
-  });
   return (
     <AuthLaytout>
       <h1 className="text-white text-xl font-semibold mb-8 text-center">Register account</h1>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={handleSubmitRegister}>
         {FIELD.map(({ name, placeholder, required }) => (
           <InputBox
             key={name}
             name={name}
             isRequired={required}
-            errorLabel={formik.errors[name]}
+            errorLabel={errorsRegister[name]}
             placeholder={placeholder}
-            value={formik.values[name]}
-            onChange={formik.handleChange}
-            error={!!formik.touched[name] && !!formik.errors[name]}
+            value={valuesRegister[name]}
+            onChange={handleChangeRegister}
+            error={!!touchedRegister[name] && !!errorsRegister[name]}
           />
         ))}
         <InputLable isRequired text="You are" />
         <div className="flex">
           <Radio
-            onChange={() => formik.setFieldValue('gender', GenderType.Male)}
+            onChange={() => setFieldValueRegister('gender', GenderType.Male)}
             color="orange"
             value={GenderType.Male}
             name="gender"
@@ -79,7 +45,7 @@ const RegisterPage = () => {
             defaultChecked
           />
           <Radio
-            onChange={() => formik.setFieldValue('gender', GenderType.Female)}
+            onChange={() => setFieldValueRegister('gender', GenderType.Female)}
             color="orange"
             value={GenderType.Female}
             name="gender"

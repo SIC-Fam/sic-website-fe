@@ -4,7 +4,7 @@ import AuthLaytout from '@layouts/AuthLaytout';
 import { formatToPrimaryText } from '@utils/common';
 import parse from 'html-react-parser';
 import Link from 'next/link';
-import useLogin from './useLogin';
+import useAuth from './useAuth';
 
 const FIELD = [
   { name: 'username', placeholder: 'Your username', required: true },
@@ -12,7 +12,7 @@ const FIELD = [
 ];
 
 const AuthPage = () => {
-  const [values, handles] = useLogin();
+  const [values, handles] = useAuth();
   const { isLoading, errors, touched, userDetail } = values;
   const { handleSubmit, handleChange } = handles;
   console.log(userDetail);
