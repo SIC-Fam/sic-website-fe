@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import styles from './Button.module.scss';
+import styles from '../../../styles/button.module.scss';
 import ArrowRight from '@components/atoms/icons/ArrowRight';
 
 interface SICButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

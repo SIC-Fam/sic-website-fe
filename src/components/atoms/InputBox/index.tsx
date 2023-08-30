@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes } from 'react';
 import ErrorIcon from '@components/atoms/icons/Error';
 import { snakeCase } from 'lodash';
 
-import styles from './inputLabel.module.scss';
+import styles from '../../../styles/inputLabel.module.scss';
 import clsx from 'clsx';
 
 interface InputBoxProps {

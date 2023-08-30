@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { LabelHTMLAttributes } from 'react';
-import styles from './tag.module.scss';
+import styles from '../../../styles/tag.module.scss';
 
 interface SICTagProps extends Omit<LabelHTMLAttributes<HTMLLabelElement>, 'children'> {
   type: 'item' | 'head';

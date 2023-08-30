@@ -1,6 +1,6 @@
 import SICMenu, { MenuType } from '@components/atoms/Menu';
 import { Avatar, Navbar, Typography } from '@material-tailwind/react';
-import style from './style.module.scss';
+import style from '../../../styles/button.module.scss';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import SICButton from '@components/atoms/Button';
