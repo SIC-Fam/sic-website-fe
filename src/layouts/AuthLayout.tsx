@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-interface AuthLaytoutProps {
+interface AuthLayoutProps {
   children: ReactNode;
 }
-const AuthLaytout = ({ children }: AuthLaytoutProps) => {
+const AuthLayout = ({ children }: AuthLayoutProps) => {
   const router = useRouter();
 
   return (
@@ -20,4 +20,4 @@ const AuthLaytout = ({ children }: AuthLaytoutProps) => {
   );
 };
 
-export default AuthLaytout;
+export default AuthLayout;

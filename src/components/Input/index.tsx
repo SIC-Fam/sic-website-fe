@@ -1,4 +1,4 @@
-import ErrorIcon from '@components/icons/Error';
+import ErrorIcon from '@components/atoms/icons/Error';
 import clsx from 'clsx';
 import React, { InputHTMLAttributes } from 'react';
 

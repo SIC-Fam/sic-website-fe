@@ -1,10 +1,10 @@
 import SICButton from '@components/atoms/Button';
 import InputBox, { InputLable } from '@components/atoms/InputBox';
 import { GenderType } from '@constants/enum';
-import AuthLaytout from '@layouts/AuthLaytout';
 import { Radio } from '@material-tailwind/react';
 import Link from 'next/link';
 import useAuth from './useAuth';
+import AuthLayout from '@layouts/AuthLayout';
 
 const FIELD = [
   { name: 'fullname', placeholder: 'Your username', required: true },
@@ -19,7 +19,7 @@ const RegisterPage = () => {
   const { handleChangeRegister, handleSubmitRegister, setFieldValueRegister } = handles;
 
   return (
-    <AuthLaytout>
+    <AuthLayout>
       <h1 className="text-white text-xl font-semibold mb-8 text-center">Register account</h1>
       <form onSubmit={handleSubmitRegister}>
         {FIELD.map(({ name, placeholder, required }) => (
@@ -61,7 +61,7 @@ const RegisterPage = () => {
           Register
         </SICButton>
       </form>
-    </AuthLaytout>
+    </AuthLayout>
   );
 };
 

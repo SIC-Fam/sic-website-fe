@@ -2,7 +2,7 @@ import SICButton from '@components/atoms/Button';
 import HeadTitle from '@components/atoms/HeaderTitle';
 import News from '@components/atoms/News';
 import Ques from '@components/atoms/Ques';
-import LayoutDefault from '@layouts/LayoutDefault';
+import LayoutDefault from '@layouts/LayoutDefault/LayoutDefault';
 import moment from 'moment';
 import { toast } from 'react-toastify';
 

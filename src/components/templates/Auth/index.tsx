@@ -1,10 +1,10 @@
 import SICButton from '@components/atoms/Button';
 import InputBox from '@components/atoms/InputBox';
-import AuthLaytout from '@layouts/AuthLaytout';
 import { formatToPrimaryText } from '@utils/common';
 import parse from 'html-react-parser';
 import Link from 'next/link';
 import useAuth from './useAuth';
+import AuthLayout from '@layouts/AuthLayout';
 
 const FIELD = [
   { name: 'username', placeholder: 'Your username', required: true },
@@ -17,7 +17,7 @@ const AuthPage = () => {
   const { handleSubmit, handleChange } = handles;
   console.log(userDetail);
   return (
-    <AuthLaytout>
+    <AuthLayout>
       <h1 className="text-white text-xl font-semibold mb-8 text-center">
         Welcome to
         <br /> {parse(formatToPrimaryText('Student Informatic Club', ['Student Informatic Club']))}
@@ -44,7 +44,7 @@ const AuthPage = () => {
           Sign in
         </SICButton>
       </form>
-    </AuthLaytout>
+    </AuthLayout>
   );
 };
 

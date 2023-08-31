@@ -1,4 +1,3 @@
-import { SICCard } from '@components/atoms/Card';
 import HeadTitle from '@components/atoms/HeaderTitle';
 import React from 'react';
 import Image from 'next/image';
@@ -42,7 +41,7 @@ const ActivitySection = () => {
   return (
     <div className="wrapper bg-transparent py-14">
       <HeadTitle position="center">our activities</HeadTitle>
-      <div className='mt-8'>
+      <div className="mt-8">
         {ACTIVITY_DATA.map((activity, index) => (
           <div
             key={activity.title}

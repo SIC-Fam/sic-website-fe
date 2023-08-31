@@ -1,14 +1,14 @@
-import SICAccordion from '@components/Accordion';
-import Banner from '@components/Banner';
-import SICButton from '@components/Button';
-import { SICCard, SICProfileCard } from '@components/Card';
-import Footer from '@components/Footer';
 import SICInput from '@components/Input';
-import SICModal from '@components/Modal';
+import SICAccordion from '@components/atoms/Accordion';
+import Banner from '@components/atoms/Banner';
+import SICButton from '@components/atoms/Button';
+import { SICCard, SICProfileCard } from '@components/atoms/Card';
+import Footer from '@components/atoms/Footer';
+import SICModal from '@components/atoms/Modal';
+import Post from '@components/atoms/Post';
+import SICSelect from '@components/atoms/Select';
+import SICTag from '@components/atoms/Tag';
 import SICNavbar from '@layouts/LayoutDefault/Navigation';
-import Post from '@components/Post';
-import SICSelect from '@components/Select';
-import SICTag from '@components/Tag';
 import navAtom from '@state/nav';
 import moment from 'moment';
 import { useState } from 'react';
@@ -58,7 +58,6 @@ export default function Dev() {
             <SICTag type="item">{'helloWorld'}</SICTag>
           </div>
           <div>
-            <DevHead>Input</DevHead>
             <SICInput placeholder={'helloWorld'} />
             <div className="p-2"></div>
             <SICInput placeholder={'helloWorld'} error />
