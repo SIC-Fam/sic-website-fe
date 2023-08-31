@@ -146,20 +146,19 @@ const RegisterModal = (props: RegisterModalProps) => {
         {...props}
         onClose={handleConfirmClose}
       >
-        <div style={{ padding: '3.5rem' }}>
-          <h1 className="text-white text-4xl font-medium mb-2">
+        <div className="p-6 md:p-[3.5rem]">
+          <h1 className="text-white text-xl md:text-2xl lg:text-4xl font-medium mb-2">
             Become a member of <span className="text-primary">SIC Gang</span>
           </h1>
-          <p className="mb-2">
+          <p className="mb-2 text-xs md:text-sm">
             Please fill all the blank below so that we could contact with you when your information is register
             successfully
           </p>
           <p style={{ fontStyle: 'italic' }} className="text-xs text-white mb-8">
-            This form will automatically close after
-            <span className="text-primary underline"> 3 </span>days
+            This form will automatically close after <span className="text-primary underline">3</span> days
           </p>
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="md:grid grid-cols-2 gap-4">
               {FIELD.map(({ name, placeholder, required }) => (
                 <InputBox
                   key={name}

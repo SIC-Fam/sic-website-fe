@@ -10,6 +10,7 @@ type CardType = {
   position?: string;
   disableHover?: boolean;
   titleClass?: string;
+  contentClass?: string;
 };
 
 type CardProfileType = {
@@ -19,7 +20,15 @@ type CardProfileType = {
   social: string;
 };
 
-const SICCard = ({ titleClass = '', symbol, title, content, position, disableHover = false }: CardType) => {
+const SICCard = ({
+  titleClass = '',
+  contentClass = '',
+  symbol,
+  title,
+  content,
+  position,
+  disableHover = false,
+}: CardType) => {
   return (
     <Card
       className={clsx('bg-transparent transition-shadow duration-150 flex-1', {
@@ -36,7 +45,9 @@ const SICCard = ({ titleClass = '', symbol, title, content, position, disableHov
         >
           {title}
         </Typography>
-        <Typography className={`text-${position || 'left'} font-mono text-xs text-text`}>{content}</Typography>
+        <Typography className={`text-${position || 'left'} font-mono text-xs text-text ${contentClass}`}>
+          {content}
+        </Typography>
       </CardBody>
     </Card>
   );

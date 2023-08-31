@@ -7,9 +7,9 @@ import { authAtom } from '@state/auth';
 import { logout } from '@services/auth';
 import { Avatar, Navbar, Typography } from '@material-tailwind/react';
 import { useState } from 'react';
-import SICMenu, { MenuType } from '../Menu';
-import Sidebar from '@layouts/LayoutDefault/Sidebar';
-import BarsIcon from '../icons/Bars';
+import Sidebar from '../Sidebar';
+import SICMenu, { MenuType } from '@components/atoms/Menu';
+import BarsIcon from '@components/atoms/icons/Bars';
 
 export type NavbarType = {
   logo?: string;

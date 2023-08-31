@@ -1,0 +1,12 @@
+html {
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  @apply bg-text bg-opacity-10 w-2;
+
+  &-thumb {
+    @apply bg-primary;
+    background-clip: padding-box;
+  }
+}

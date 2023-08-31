@@ -1,4 +1,4 @@
-import LayoutDefault from '@layouts/LayoutDefault';
+import LayoutDefault from '@layouts/LayoutDefault/LayoutDefault';
 import React, { useMemo } from 'react';
 import Banner from '@components/atoms/Banner';
 import Ques from '@components/atoms/Ques';

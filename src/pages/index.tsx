@@ -2,7 +2,7 @@ import { Meta } from '@/components/meta';
 import { HttpResponse } from '@components/lib/api';
 import { NextPageWithLayout } from '@components/lib/next';
 import Home from '@components/templates/Home';
-import LayoutDefault from '@layouts/LayoutDefault';
+import LayoutDefault from '@layouts/LayoutDefault/LayoutDefault';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type Props = HttpResponse<null>;

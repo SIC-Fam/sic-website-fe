@@ -42,9 +42,9 @@ const ADVANTAGES = [
 const AdvantageSection = () => {
   return (
     <div className="py-14">
-      <h1 className="text-primary text-4xl text-center font-medium">What will you get?</h1>
+      <h1 className="text-primary text-xl md:text-2xl lg:text-4xl text-center font-medium">What will you get?</h1>
 
-      <div className="grid grid-cols-3 gap-8 mt-14">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
         {ADVANTAGES.map((item) => (
           <div className="grid gap-4 place-items-center" key={item.title}>
             <span className="text-primary">{item.icon}</span>

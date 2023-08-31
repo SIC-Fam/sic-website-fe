@@ -1,16 +1,16 @@
 import { Meta } from '@/components/meta';
 import { HttpResponse } from '@components/lib/api';
 import { NextPageWithLayout } from '@components/lib/next';
-import Posts from '@components/templates/Posts';
+import GroupPage from '@components/templates/Group';
 import LayoutDefault from '@layouts/LayoutDefault/LayoutDefault';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type Props = HttpResponse<null>;
 
-const Page: NextPageWithLayout<Props> = () => <Posts />;
+const Page: NextPageWithLayout<Props> = () => <GroupPage />;
 
 Page.getLayout = LayoutDefault;
-Page.getMeta = Meta(() => ({ title: 'SIC - Posts' }));
+Page.getMeta = Meta(() => ({ title: 'SIC - Group' }));
 
 export const getServerSideProps = async (context: any) => {
   const { locale = 'en' } = context;

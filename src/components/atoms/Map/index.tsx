@@ -1,13 +1,14 @@
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L, { LatLngExpression } from 'leaflet';
+import clsx from 'clsx';
 
-const Map = () => {
+const Map = ({ className }: { readonly className?: string }) => {
   const mapCenter: LatLngExpression = [21.0069401, 105.825429];
   const mapZoom = 30;
   const size = 40;
   return (
-    <div className="relative">
+    <div className={clsx(['relative w-full z-10'], [className])}>
       <MapContainer center={mapCenter} zoom={mapZoom} className="h-full w-full">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
