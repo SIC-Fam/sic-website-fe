@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  web:
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    network:
+      - default
+    restart:
+      - always
+    volumes:
+      - .:/app
+    command: npm start
+    ports:
+      - "80:3000"
+
+networks:
+  default:
+    name: portal_network
