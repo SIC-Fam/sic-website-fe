@@ -9,7 +9,7 @@ interface InputBoxProps {
   isRequired?: boolean;
   errorLabel?: string;
   placeholder?: string;
-  value: string;
+  value?: string;
   name: string;
   onChange: any;
   error?: boolean;
@@ -47,7 +47,7 @@ const InputBox = ({
         name={name}
         errorLabel={errorLabel}
         placeholder={placeholder || `Enter ${snakeCase(name).replace(/_/g, ' ')}`}
-        value={value}
+        defaultValue={value}
         onChange={onChange}
         error={error}
         type={type || 'text'}

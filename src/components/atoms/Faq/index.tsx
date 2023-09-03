@@ -9,8 +9,8 @@ const FAQ = () => {
     <div className="lg:grid grid-cols-3 ">
       <Map className="lg:h-full h-[300px]" />
       <div className="col-span-2">
-        <div className="p-[8%] flex flex-col font-mono gap-4">
-          <Typography className="text-2xl md:text-4xl font-mono text-primary">Get in touch</Typography>
+        <div className="p-[8%] flex flex-col   gap-4">
+          <Typography className="text-2xl md:text-4xl font-semibold text-primary">Get in touch</Typography>
           <Typography className="font-sm text-text">
             If you have any questions, please leave your message below so that the SIC team can answer them
           </Typography>
@@ -29,7 +29,6 @@ const FAQ = () => {
               <InputBox
                 isRequired={false}
                 placeholder={'Your Content'}
-                value={''}
                 name={'content'}
                 onChange={undefined}
                 type="textarea"

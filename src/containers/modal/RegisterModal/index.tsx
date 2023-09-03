@@ -2,18 +2,15 @@ import SICButton from '@components/atoms/Button';
 import SICModal, { SICModalProps } from '@components/atoms/Modal';
 import SICSelect from '@components/atoms/Select';
 import ErrorIcon from '@components/atoms/icons/Error';
-import { Notification } from '@constants/enum';
-import toastNotification from '@utils/toast';
 import { useFormik } from 'formik';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as yup from 'yup';
 import InputBox, { InputLable } from '@components/atoms/InputBox';
-import CloseConfirmModal from '../ConfirmModal/CloseConfirm';
 import useCTV from './useCTV';
 import { pick } from 'lodash';
 import { phoneNumberValidate } from '@constants/regex';
-import { CtvServicesBody } from '@services/ctv/typing';
 import moment from 'moment';
+import clsx from 'clsx';
 
 interface RegisterModalProps extends Omit<SICModalProps, 'children'> {}
 
@@ -43,10 +40,8 @@ const REGISTER_BAN = [
 
 const RegisterModal = (props: RegisterModalProps) => {
   const [groupChecked, setGroupChecked] = useState<string[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [openConfirmClose, setOpenConfirmClose] = useState(false);
 
-  const mutation = useCTV();
+  const { mutate, isLoading } = useCTV();
 
   const validationSchema = yup.object().shape({
     name: yup.string().required('This field is required'),
@@ -70,7 +65,7 @@ const RegisterModal = (props: RegisterModalProps) => {
       // cv: '',
     },
     validationSchema,
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: (values) => {
       const body = {
         msv: values.studentCode,
         birthday: moment.utc(values.birthday, 'DD/MM/YYYY').toDate(),
@@ -79,8 +74,7 @@ const RegisterModal = (props: RegisterModalProps) => {
           ? { numberPhone: values.contactInformation }
           : { linkFb: values.contactInformation }),
       };
-      mutation.mutate(body as CtvServicesBody);
-      setSubmitting(false);
+      mutate(body);
     },
   });
 
@@ -98,53 +92,21 @@ const RegisterModal = (props: RegisterModalProps) => {
     formik.setFieldValue('groups', groupChecked);
 
     formik.handleSubmit();
-    handleToast();
-  };
-
-  const handleToast = () => {
-    if (!loading) {
-      toastNotification('Success', Notification.success);
-    }
-  };
-
-  useEffect(() => {
-    setLoading(formik.isSubmitting);
-  }, [formik.isSubmitting]);
-
-  const checkChangeModal = () => {
-    let check = 0;
-    const keys = Object.keys(formik.initialValues);
-    keys.map((key) => {
-      if (formik.initialValues[key] !== formik.values[key]) {
-        check++;
-      }
-    });
-    return check === 0;
-  };
-
-  const handleConfirmClose = () => {
-    if (checkChangeModal()) {
-      handleClose();
-    } else {
-      setOpenConfirmClose(true);
-    }
   };
 
   const handleClose = () => {
     formik.resetForm();
+    setGroupChecked([]);
     props?.onClose();
   };
 
-  console.log(formik.errors);
-
   return (
     <>
-      <CloseConfirmModal open={openConfirmClose} onSubmit={handleClose} onClose={() => setOpenConfirmClose(false)} />
       <SICModal
         style={{ width: '995px' }}
         className="border border-primary shadow-primary"
         {...props}
-        onClose={handleConfirmClose}
+        onClose={handleClose}
       >
         <div className="p-6 md:p-[3.5rem]">
           <h1 className="text-white text-xl md:text-2xl lg:text-4xl font-medium mb-2">
@@ -201,12 +163,17 @@ const RegisterModal = (props: RegisterModalProps) => {
             </div> */}
 
             <div className="flex mt-8">
-              <SICButton onClick={handleConfirmClose} type="button" className="w-full" color="inherit" variant="text">
+              <SICButton onClick={handleClose} type="button" className="w-full" color="inherit" variant="text">
                 Cancel
               </SICButton>
               <div className="w-8"></div>
-              <SICButton className="w-full" type="submit">
-                {loading ? `loading...` : `Join`}
+              <SICButton
+                className={clsx(['w-full'], {
+                  isLoading: 'pointer-events-none',
+                })}
+                type="submit"
+              >
+                {isLoading ? `loading...` : `Join`}
               </SICButton>
             </div>
           </form>

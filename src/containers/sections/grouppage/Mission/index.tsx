@@ -17,7 +17,7 @@ const MissionSection = ({ title, data }: MissionSectionProps) => {
   return (
     <>
       <div className="mt-14">
-        <h1 className="text-primary text-xl md:text-2xl lg:text-4xl font-medium">
+        <h1 className="text-primary text-xl md:text-2xl lg:text-3xl font-medium">
           What does the {title.toLowerCase()} do?
         </h1>
         {data.map((item, index) => (

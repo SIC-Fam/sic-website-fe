@@ -17,16 +17,16 @@ const Ques = () => {
     <div className="py-14" style={{ background: "url('/images/banner.png') center center/ cover no-repeat" }}>
       <RegisterModal open={isOpenRegisterModal} onClose={handleCloseRegisterModal} />
       <div className="wrapper">
-        <Typography className="text-white text-xl md:text-2xl lg:text-4xl text-center font-mono">
+        <Typography className="text-white text-xl md:text-2xl lg:text-4xl text-center  ">
           Ready to become a member of{' '}
-          <Typography as="span" className="inline-block decoration-solid decoration-primary text-primary font-mono">
+          <Typography as="span" className="inline-block decoration-solid decoration-primary text-primary  ">
             Sic
           </Typography>{' '}
           Family?
         </Typography>
-        <Typography className="mt-2 mb-8 font-normal text-text text-xs md:text-sm font-mono text-center">
+        <Typography className="mt-2 mb-8 font-normal text-text text-xs md:text-sm   text-center">
           {`Click the button below to become a member of `}
-          <Typography as="span" className="inline-block font-mono text-primary">
+          <Typography as="span" className="inline-block   text-primary">
             SIC GANG
           </Typography>
         </Typography>

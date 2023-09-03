@@ -11,7 +11,7 @@ const LayoutDefault = ({ children }: any) => {
     <div className="h-screen">
       <SICNavbar list={navListItem} />
       {children}
-      <div className="w-full border-t font-mono border-b border-primary bg-transparent">
+      <div className="w-full border-t   border-b border-primary bg-transparent">
         <FAQ />
       </div>
       <ScrollToTop />

@@ -38,10 +38,6 @@ module.exports = withMT({
       '4xl': '3rem', // 48px
       '5xl': '4rem', // 60px
     },
-    fontFamily: {
-      sans: ['Helvetice', 'sans-serif'],
-      mono: ['JetBrains Mono', 'monospace'],
-    },
     extend: {
       boxShadow: {
         primary: '0px 1px 8px 1px rgba(245, 121, 48, 0.25)',

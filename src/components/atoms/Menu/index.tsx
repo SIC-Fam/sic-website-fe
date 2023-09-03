@@ -34,9 +34,7 @@ const SICMenu = ({ name, menus, className = '' }: MenuListType) => {
             'border-primary text-primary': openMenu,
             'border-transparent text-white': !openMenu,
           },
-          [
-            'gap-2 flex items-center  font-mono rounded-none text-sm hover:bg-transparent font-light uppercase outline-none',
-          ],
+          ['gap-2 flex items-center    rounded-none text-sm hover:bg-transparent font-light uppercase outline-none'],
           [className],
         )}
       >
@@ -56,7 +54,7 @@ const SICMenu = ({ name, menus, className = '' }: MenuListType) => {
                 <MenuList className="px-0">
                   {_m.subMenu?.map((_sub, i) => (
                     <MenuItem
-                      className="font-mono pe-12 rounded-none text-white hover:text-white capitalize hover:bg-primary"
+                      className="  pe-12 rounded-none text-white hover:text-white capitalize hover:bg-primary"
                       key={i}
                       onClick={() => router.push(_sub.href)}
                     >
@@ -67,7 +65,7 @@ const SICMenu = ({ name, menus, className = '' }: MenuListType) => {
               </Menu>
             ) : (
               <MenuItem
-                className="font-mono pe-12 text-white rounded-none hover:text-white capitalize hover:bg-primary"
+                className="  pe-12 text-white rounded-none hover:text-white capitalize hover:bg-primary"
                 onClick={() => router.push(_m.href)}
                 key={index}
               >

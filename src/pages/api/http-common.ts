@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { getToken, removeToken } from './token';
 
 const client = axios.create({
-  baseURL: 'http://14.255.204.54:8088/api/v',
+  baseURL: 'http://14.225.204.54:8088/api/v',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',

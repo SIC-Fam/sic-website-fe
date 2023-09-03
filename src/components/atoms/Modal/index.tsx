@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { ReactNode, HTMLAttributes } from 'react';
+import React, { ReactNode, HTMLAttributes, useEffect } from 'react';
 
 export interface SICModalProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -10,6 +10,14 @@ export interface SICModalProps extends HTMLAttributes<HTMLDivElement> {
 // eslint-disable-next-line react/display-name
 const SICModal = React.forwardRef<HTMLDivElement, SICModalProps>(
   ({ children, className = '', open, onClose, ...props }, ref) => {
+    useEffect(() => {
+      if (open) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }, [open]);
+
     if (!open) {
       return <></>;
     }

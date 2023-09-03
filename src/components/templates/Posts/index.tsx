@@ -138,8 +138,8 @@ const Posts = () => {
   return (
     <div className="relative h-screen">
       <LayoutDefault>
-        <div className="pt-8">
-          <div className="w-full px-32 bg-transparent border-b shadow-glove border-primary">
+        <div className="pt-8 wrapper">
+          <div className="w-full bg-transparent border-b border-primary">
             <div className="py-14">
               <div className="flex justify-between mb-8 items-center">
                 <HeadTitle>news</HeadTitle>
@@ -150,7 +150,7 @@ const Posts = () => {
               <News posts={postList} limit={6} />
             </div>
           </div>
-          <div className="w-full px-32 bg-transparent border-b shadow-glove border-primary">
+          <div className="w-full bg-transparent">
             <div className="py-14">
               <div className="flex justify-between mb-8 items-center">
                 <HeadTitle>technologies</HeadTitle>
@@ -161,8 +161,8 @@ const Posts = () => {
               <News posts={postList} limit={6} />
             </div>
           </div>
-          <Ques />
         </div>
+        <Ques />
       </LayoutDefault>
     </div>
   );

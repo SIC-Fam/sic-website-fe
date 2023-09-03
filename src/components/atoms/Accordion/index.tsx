@@ -33,7 +33,7 @@ const SICAccordion = (props: AccordionListType) => {
         />
       }
       open={toggleOpen === 0}
-      className="font-mono"
+      className=" "
     >
       <AccordionHeader
         style={
@@ -47,7 +47,7 @@ const SICAccordion = (props: AccordionListType) => {
               }
         }
         onClick={() => handleToggleOpen(0)}
-        className={`hover:text-primary py-2 px-4 border border-text text-sm font-mono ${
+        className={`hover:text-primary py-2 px-4 border border-text text-sm   ${
           toggleOpen === 0 ? 'text-primary' : 'text-text'
         }`}
       >
@@ -59,7 +59,7 @@ const SICAccordion = (props: AccordionListType) => {
           borderBottomRightRadius: '8px',
           lineHeight: '2rem',
         }}
-        className="py-2 px-4 font-mono text-sm bg-text text-white"
+        className="py-2 px-4   text-sm bg-text text-white"
       >
         {data[0]?.body}
       </AccordionBody>
@@ -77,7 +77,7 @@ const SICAccordion = (props: AccordionListType) => {
           />
         }
         open={toggleOpen === index}
-        className="font-mono shadow-[0px_0px_2px_2px_rgba(0,0,0,0.2)]"
+        className="  shadow-[0px_0px_2px_2px_rgba(0,0,0,0.2)]"
       >
         <AccordionHeader
           style={
@@ -96,7 +96,7 @@ const SICAccordion = (props: AccordionListType) => {
               : {}
           }
           onClick={() => handleToggleOpen(index)}
-          className={`hover:text-primary py-2 px-4 text-sm border-b-[rgba(0,0,0,0.1)] font-mono ${
+          className={`hover:text-primary py-2 px-4 text-sm border-b-[rgba(0,0,0,0.1)]   ${
             toggleOpen === index ? 'text-primary' : 'text-text'
           }`}
         >
@@ -114,7 +114,7 @@ const SICAccordion = (props: AccordionListType) => {
                   lineHeight: '2rem',
                 }
           }
-          className="py-1 px-3 font-mono text-sm bg-primary25 text-white"
+          className="py-1 px-3   text-sm bg-primary25 text-white"
         >
           {item?.body}
         </AccordionBody>

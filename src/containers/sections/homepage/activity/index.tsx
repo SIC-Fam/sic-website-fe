@@ -41,11 +41,11 @@ const ActivitySection = () => {
   return (
     <div className="wrapper bg-transparent py-14">
       <HeadTitle position="center">our activities</HeadTitle>
-      <div className="mt-8">
+      <div className="mt-14">
         {ACTIVITY_DATA.map((activity, index) => (
           <div
             key={activity.title}
-            className={clsx(['lg:flex mb-10 lg:mb-20 items-center'], {
+            className={clsx(['lg:flex mb-14 lg:mb-24 items-center'], {
               'flex-row-reverse': index % 2 === 0,
             })}
           >
@@ -59,10 +59,10 @@ const ActivitySection = () => {
                   'lg:pl-[3%] lg:pr-[8%]': index % 2 === 0,
                 })}
               >
-                <Typography className="text-lg sm:text-xl lg:text-2xl mb-8 w-full font-mono text-white font-medium">
+                <Typography className="text-lg sm:text-xl lg:text-2xl mb-8 w-full   text-white font-medium">
                   {activity.title}
                 </Typography>
-                <Typography className="font-mono text-xs text-text ">{activity.content}</Typography>
+                <Typography className="  text-xs text-text ">{activity.content}</Typography>
               </div>
             </div>
           </div>

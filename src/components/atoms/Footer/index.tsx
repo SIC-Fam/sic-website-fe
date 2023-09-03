@@ -32,7 +32,7 @@ const Footer = () => {
     <footer className="flex wrapper flex-row flex-wrap items-end gap-y-6 gap-x-12 py-20 text-center md:justify-between">
       <div className="flex flex-col">
         <Avatar src={'/images/logo.png'} />
-        <Typography className="font-normal font-mono mt-2">&copy; 2023 | All right reserved</Typography>
+        <Typography className="font-normal   mt-2">&copy; 2023 | All right reserved</Typography>
       </div>
       <div className="md:flex flex-col items-end">
         <ul className="flex flex-wrap items-center">
@@ -52,7 +52,7 @@ const Footer = () => {
                   <Typography
                     as="a"
                     href={item.href}
-                    className="font-normal text-sm text-text hover:text-primary uppercase font-mono md:ml-8 mr-8 md:mr-0"
+                    className="font-normal text-sm text-text hover:text-primary uppercase   md:ml-8 mr-8 md:mr-0"
                   >
                     {item.name}
                   </Typography>

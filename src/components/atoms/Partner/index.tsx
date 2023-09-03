@@ -26,7 +26,7 @@ const Partner = () => {
   };
   return (
     <div className="lg:flex">
-      <div className="flex-1 h-full items-center justify-center flex flex-col pr-14">
+      <div className="flex-1 h-full items-center justify-center flex flex-col lg:pr-14">
         <SICAccordion data={partners} onChange={handleChange} />
       </div>
       <div className="flex-1 relative my-8 h-[360px]">

@@ -15,7 +15,7 @@ interface IntroduceSectionProps {
   };
 }
 
-const  IntroduceSection = ({
+const IntroduceSection = ({
   shortDescription,
   longDescription,
   leaderTitle,
@@ -25,19 +25,23 @@ const  IntroduceSection = ({
   return (
     <>
       <div className="mt-14">
-        <h1 className="text-primary text-xl md:text-2xl lg:text-4xl font-medium">{shortDescription}</h1>
+        <h1 className="text-primary text-xl md:text-2xl lg:text-3xl font-medium">{shortDescription}</h1>
         <p className="mt-4 text-xs sm:text-sm ">{parse(longDescription)}</p>
       </div>
 
       <div className="mt-14">
-        <h1 className="text-primary text-xl md:text-2xl lg:text-4xl font-medium">{leaderTitle}</h1>
-        <p className="my-4 text-xs sm:text-sm">{parse(leaderDescription)}</p>
-        <SICProfileCard
-          image={leaderInfo.image}
-          name={leaderInfo.name}
-          description={leaderInfo.description}
-          social={leaderInfo.social}
-        />
+        <h1 className="text-primary text-xl md:text-2xl lg:text-3xl font-medium">{leaderTitle}</h1>
+        <div className="flex flex-col-reverse md:flex-row md:mt-10">
+          <div className="flex-1">
+            <SICProfileCard
+              image={leaderInfo.image}
+              name={leaderInfo.name}
+              description={leaderInfo.description}
+              social={leaderInfo.social}
+            />
+          </div>
+          <p className="text-xs sm:text-sm flex-1 grid place-items-center py-6 md:p-10">{parse(leaderDescription)}</p>
+        </div>
       </div>
     </>
   );

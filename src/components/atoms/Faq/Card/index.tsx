@@ -29,14 +29,11 @@ const SICCard = ({ titleClass = '', symbol, title, content, position, disableHov
       <CardBody className="flex flex-col items-center px-4 pt-4 pb-16">
         {symbol && <Avatar className="mb-8" src={symbol} variant="rounded" />}
         <Typography
-          className={clsx(
-            `mb-8 text-${position || 'left'} w-full font-mono text-sm text-white font-medium`,
-            titleClass,
-          )}
+          className={clsx(`mb-8 text-${position || 'left'} w-full   text-sm text-white font-medium`, titleClass)}
         >
           {title}
         </Typography>
-        <Typography className={`text-${position || 'left'} font-mono text-xs text-text`}>{content}</Typography>
+        <Typography className={`text-${position || 'left'}   text-xs text-text`}>{content}</Typography>
       </CardBody>
     </Card>
   );
@@ -50,8 +47,8 @@ const SICProfileCard = (props: CardProfileType) => {
         <Image src={image} alt="profile-picture" fill className="overflow-hidden object-cover" />
       </CardHeader>
       <CardBody className="text-center">
-        <Typography className="mb-2 text-xl text-primary font-mono">{name}</Typography>
-        <Typography className="font-light text-sm text-text font-mono">{description}</Typography>
+        <Typography className="mb-2 text-xl text-primary  ">{name}</Typography>
+        <Typography className="font-light text-sm text-text  ">{description}</Typography>
       </CardBody>
       <CardFooter className="flex justify-center gap-7 pt-2">
         <Tooltip content="Facebook">

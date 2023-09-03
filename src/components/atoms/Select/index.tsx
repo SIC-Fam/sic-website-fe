@@ -55,7 +55,7 @@ const SICSelect = ({
       <Button
         onClick={toggleOpenCollapse}
         ripple={false}
-        className="font-mono text-sm w-full py-2 px-3 capitalize hover:shadow-primary shadow-none text-left flex justify-between bg-dark-main border border-text color-text focus:outline-none font-light text-text"
+        className="  text-sm w-full py-2 px-3 capitalize hover:shadow-primary shadow-none text-left flex justify-between bg-dark-main border border-text color-text focus:outline-none font-light text-text"
         style={
           toggleCollapse
             ? {
@@ -86,7 +86,7 @@ const SICSelect = ({
               data.map((item, index) =>
                 !multiple ? (
                   <ListItem
-                    className="font-mono text-sm text-white px-1 py-2"
+                    className="  text-sm text-white px-1 py-2"
                     key={index}
                     onClick={() => handleSelect(item.value)}
                   >
@@ -99,7 +99,7 @@ const SICSelect = ({
                     id={`${index}`}
                     className="px-1 py-1 rounded-none w-3.5 h-3.5"
                     key={index}
-                    label={<Typography className="font-mono text-sm text-white">{item.label}</Typography>}
+                    label={<Typography className="  text-sm text-white">{item.label}</Typography>}
                     ripple={false}
                     checked={getValueLabel()?.includes(item.label)}
                     onChange={() => handleSelect(item.value)}

@@ -13,7 +13,7 @@ const CloseConfirmModal = (props: CloseConfirmModalProps) => {
   return (
     <SICModal {...props} style={{ zIndex: 99 }} className="border border-primary rounded-lg shadow-primary">
       <div className="flex flex-col p-14 gap-10">
-        <Typography className="font-mono text-xl text-center text-primary">Are you sure to cancel?</Typography>
+        <Typography className="  text-xl text-center text-primary">Are you sure to cancel?</Typography>
         <div className="flex justify-between">
           <SICButton variant="text" color="inherit" onClick={props?.onClose}>
             Cancel

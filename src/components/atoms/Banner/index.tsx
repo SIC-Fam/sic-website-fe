@@ -52,13 +52,11 @@ const Banner = ({
       <RegisterModal open={isOpenRegisterModal} onClose={handleCloseRegisterModal} />
       <VideoModal open={isOpenVideoModal} onClose={handleCloseVideoModal} />
 
-      <Image className="h-full w-full" src={props.image || '/images/banner.png'} alt="nature image" fill />
+      <Image className="h-full w-full object-cover" src={props.image || '/images/banner.png'} alt="nature image" fill />
       <figcaption className="wrapper z-10">
         <div>
-          <Typography className="text-white text-xl sm:text-3xl md:text-5xl  font-mono">
-            {parse(title + '')}
-          </Typography>
-          <Typography className="mt-2 mb-8 font-normal text-text text-xs sm:text-sm font-mono">
+          <Typography className="text-white text-xl sm:text-3xl md:text-5xl   ">{parse(title + '')}</Typography>
+          <Typography className="mt-2 mb-8 font-normal text-text text-xs sm:text-sm  ">
             {parse(description + '')}
           </Typography>
           <div className="flex items-center">

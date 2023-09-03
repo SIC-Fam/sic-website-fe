@@ -17,11 +17,11 @@ const Post = (props: PostType) => {
           src={image}
           alt="#"
           fill
-          className="h-full w-full rounded-none origin-center hover:scale-105 duration-300 overflow-hidden transition-transform"
+          className="h-full w-full rounded-none origin-center hover:scale-105 duration-300 overflow-hidden transition-transform object-cover"
         />
       </CardHeader>
       <CardBody className="pb-0">
-        <Typography className="font-light text-xs text-text font-mono">Public At: {datePublic}</Typography>
+        <Typography className="font-light text-xs text-text  ">Public At: {datePublic}</Typography>
         <Tooltip
           content={title.length > 30 && title}
           animate={{
@@ -30,12 +30,12 @@ const Post = (props: PostType) => {
           }}
           placement="bottom-start"
         >
-          <div className="mt-3 text-primary text-sm font-mono flex justify-between items-center">
-            {title.length > 75 ? `${title.slice(0, 74)} ...` : title}
+          <div className="mt-3 text-primary text-sm   flex justify-between items-center">
+            {title.length > 50 ? `${title.slice(0, 49)} ...` : title}
           </div>
         </Tooltip>
-        <Typography variant="lead" className="mt-3 font-light font-mono text-text text-xs">
-          {summary.length > 150 ? `${summary.slice(0, 140)} ...` : summary}
+        <Typography variant="lead" className="mt-3 font-light   text-text text-xs">
+          {summary.length > 100 ? `${summary.slice(0, 99)} ...` : summary}
         </Typography>
       </CardBody>
       <CardFooter>

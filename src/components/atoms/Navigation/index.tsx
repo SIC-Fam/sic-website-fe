@@ -45,7 +45,7 @@ const NavList = (props: { list: Array<NavbarListType> }) => {
                 className={clsx(
                   style['navbar-name'],
                   [
-                    'p-1 cursor-pointer font-light py-6 px-8 border-b-2 hover:border-primary border-transparent flex font-mono items-center text-white uppercase transition-colors',
+                    'p-1 cursor-pointer font-light py-6 px-8 border-b-2 hover:border-primary border-transparent flex   items-center text-white uppercase transition-colors',
                   ],
                   {
                     'border-primary text-primary': router.pathname === _l.href,
@@ -83,23 +83,18 @@ const SICNavbar = (props: NavbarType) => {
       shadow
       className="fixed mx-auto bg-dark-main py-0 border-b border-b-[rgba(0,0,0,0.2)] z-[11] "
     >
-      <div className="flex items-center justify-between text-white font-mono w-5/6 mx-auto wrapper">
+      <div className="flex items-center justify-between text-white   w-5/6 mx-auto wrapper">
         <Avatar src={logo || '/images/logo.png'} onClick={() => router.push('/')} className="my-3" />
         <div className="lg:flex">
           <NavList list={list} />
           <Sidebar setShowSidebar={setShowSidebar} showSidebar={showSidebar} list={list} />
           <div className="hidden lg:grid place-items-center ml-12">
-            {!user ? (
-              <SICButton variant="contained" color="primary" disabledHover onClick={handleNavigateAuthPage}>
-                Sign in
-              </SICButton>
-            ) : (
-              <>
-                <SICButton variant="contained" color="primary" disabledHover onClick={handleLogOut}>
-                  Log Out
-                </SICButton>
-              </>
-            )}
+            <div
+              className="py-2 px-4 border border-primary hover:rounded-full cursor-pointer text-primary transition hover:text-white hover:bg-primary"
+              onClick={!user ? handleNavigateAuthPage : handleLogOut}
+            >
+              <div className="hidden md:block">{!user ? 'LOG-IN' : 'LOG-OUT'}</div>
+            </div>
           </div>
         </div>
         <div className="lg:hidden cursor-pointer" onClick={() => setShowSidebar(true)}>

@@ -29,7 +29,7 @@ const leadersAtom = atom({
       image: '/images/tech-leader.png',
       name: 'Vu Minh Quan',
       description: 'Technical leader',
-      social: 'https://www.facebook.com/toilawuanvu',
+      social: 'https://www.facebook.com/toilaquanvu',
     },
     {
       key: '',
