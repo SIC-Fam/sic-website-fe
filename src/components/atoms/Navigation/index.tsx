@@ -1,7 +1,6 @@
 import style from '../../../styles/button.module.scss';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import SICButton from '@components/atoms/Button';
 import { useRecoilState } from 'recoil';
 import { authAtom } from '@state/auth';
 import { logout } from '@services/auth';
