@@ -31,9 +31,6 @@ const SICButton = ({
           [styles[`btn-${color}-outlined`] as string]: variant === 'outlined',
           'pointer-events-none opacity-75': isLoading,
         },
-        {
-          ['hover:tracking-widest']: !disabledHover,
-        },
         ['flex items-center justify-center'],
         [className],
       )}

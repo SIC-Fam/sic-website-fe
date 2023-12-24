@@ -43,7 +43,7 @@ const Banner = ({
   };
   return (
     <figure
-      className={`flex items-center ${props.className}`}
+      className={`flex items-center relative ${props.className}`}
       style={{
         width: props.width,
         height: props.height,
@@ -52,7 +52,15 @@ const Banner = ({
       <RegisterModal open={isOpenRegisterModal} onClose={handleCloseRegisterModal} />
       <VideoModal open={isOpenVideoModal} onClose={handleCloseVideoModal} />
 
-      <Image className="h-full w-full object-cover" src={props.image || '/images/banner.png'} alt="nature image" fill />
+      <div className="absolute inset-0 z-0 w-full h-full">
+        <Image
+          className="h-full w-full object-cover"
+          src={props.image || '/images/banner.jpg'}
+          alt="nature image"
+          fill
+        />
+        <div className="bg-black/70 absolute inset-0"></div>
+      </div>
       <figcaption className="wrapper z-10">
         <div>
           <Typography className="text-white text-xl sm:text-3xl md:text-5xl   ">{parse(title + '')}</Typography>

@@ -15,7 +15,6 @@ Page.getMeta = Meta(() => ({ title: 'SIC - Student Informatic Club' }));
 export const getServerSideProps = async (context: any) => {
   const { locale = 'en' } = context;
 
-  // check login
   const checkLogin = true;
   if (!checkLogin) {
     const { res } = context;

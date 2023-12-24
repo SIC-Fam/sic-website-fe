@@ -14,7 +14,7 @@ const Ques = () => {
     setIsOpenRegisterModal(false);
   };
   return (
-    <div className="py-14" style={{ background: "url('/images/banner.png') center center/ cover no-repeat" }}>
+    <div className="py-14" style={{ background: "url('/images/banner.jpg') center center/ cover no-repeat" }}>
       <RegisterModal open={isOpenRegisterModal} onClose={handleCloseRegisterModal} />
       <div className="wrapper">
         <Typography className="text-white text-xl md:text-2xl lg:text-4xl text-center  ">

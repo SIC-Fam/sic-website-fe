@@ -87,14 +87,14 @@ const SICNavbar = (props: NavbarType) => {
         <div className="lg:flex">
           <NavList list={list} />
           <Sidebar setShowSidebar={setShowSidebar} showSidebar={showSidebar} list={list} />
-          <div className="hidden lg:grid place-items-center ml-12">
+          {/* <div className="hidden lg:grid place-items-center ml-12">
             <div
               className="py-2 px-4 border border-primary hover:rounded-full cursor-pointer text-primary transition hover:text-white hover:bg-primary"
               onClick={!user ? handleNavigateAuthPage : handleLogOut}
             >
               <div className="hidden md:block">{!user ? 'LOG-IN' : 'LOG-OUT'}</div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="lg:hidden cursor-pointer" onClick={() => setShowSidebar(true)}>
           <BarsIcon />

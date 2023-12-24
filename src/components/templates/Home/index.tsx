@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <LayoutDefault>
       <Banner width="100%" height="100%" />
-      <div className="wrapper bg-transparent ">
+      {/* <div className="wrapper bg-transparent ">
         <div className="py-14">
           <div className="flex justify-between mb-16 items-center">
             <HeadTitle>news</HeadTitle>
@@ -29,7 +29,7 @@ export default function Home() {
           </div>
           <News posts={postList} limit={3} />
         </div>
-      </div>
+      </div> */}
       <AboutSection />
       <ActivitySection />
       <Ques />

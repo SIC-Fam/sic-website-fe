@@ -1,4 +1,4 @@
-import FAQ from '@components/atoms/Faq';
+// import FAQ from '@components/atoms/Faq';
 import Footer from '@components/atoms/Footer';
 import SICNavbar from '@components/atoms/Navigation';
 import ScrollToTop from '@components/atoms/ScrollToTop';
@@ -9,12 +9,12 @@ const LayoutDefault = ({ children }: any) => {
   const [navListItem] = useRecoilState(navAtom);
   return (
     <div className="h-screen">
+      <ScrollToTop />
       <SICNavbar list={navListItem} />
       {children}
-      <div className="w-full border-t   border-b border-primary bg-transparent">
+      {/* <div className="w-full border-t   border-b border-primary bg-transparent">
         <FAQ />
-      </div>
-      <ScrollToTop />
+      </div> */}
       <Footer />
     </div>
   );

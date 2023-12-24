@@ -5,8 +5,8 @@ interface VideoProps extends Omit<SICModalProps, 'children'> {}
 
 const VideoModal = (props: VideoProps) => {
   return (
-    <SICModal style={{ width: '995px' }} className="border border-primary shadow-primary" {...props}>
-      <Video src={'/videos/intro.mp4'} />
+    <SICModal style={{ maxWidth: 700 }} className="border border-primary shadow-primary aspect-video w-full" {...props}>
+      <Video src={'https://youtu.be/EG_zVF2tWFQ'} />
     </SICModal>
   );
 };
