@@ -1,21 +1,14 @@
 import Banner from '@components/atoms/Banner';
-import SICButton from '@components/atoms/Button';
 import HeadTitle from '@components/atoms/HeaderTitle';
 import Leader from '@components/atoms/Leader';
-import News from '@components/atoms/News';
 import Partner from '@components/atoms/Partner';
 import Ques from '@components/atoms/Ques';
 import AboutSection from '@containers/sections/homepage/about';
 import ActivitySection from '@containers/sections/homepage/activity';
 import LayoutDefault from '@layouts/LayoutDefault/LayoutDefault';
 import { Typography } from '@material-tailwind/react';
-import postsAtom from '@state/posts';
-import { toast } from 'react-toastify';
-import { useRecoilState } from 'recoil';
 
 export default function Home() {
-  const [postList] = useRecoilState(postsAtom);
-
   return (
     <LayoutDefault>
       <Banner width="100%" height="100%" />

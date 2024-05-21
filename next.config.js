@@ -12,7 +12,7 @@ const nextConfig = {
   publicRuntimeConfig: {
     BASE_API: process.env.BASE_API,
   },
-  i18n
+  i18n,
 };
 
 module.exports = nextConfig;

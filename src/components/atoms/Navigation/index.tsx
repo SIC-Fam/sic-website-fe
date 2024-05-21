@@ -1,9 +1,9 @@
 import style from '../../../styles/button.module.scss';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { useRecoilState } from 'recoil';
-import { authAtom } from '@state/auth';
-import { logout } from '@services/auth';
+// import { useRecoilState } from 'recoil';
+// import { authAtom } from '@state/auth';
+// import { logout } from '@services/auth';
 import { Avatar, Navbar, Typography } from '@material-tailwind/react';
 import { useState } from 'react';
 import SICMenu, { MenuType } from '../Menu';
@@ -63,17 +63,17 @@ const NavList = (props: { list: Array<NavbarListType> }) => {
 const SICNavbar = (props: NavbarType) => {
   const router = useRouter();
   const { logo, list } = props;
-  const [user, setUser] = useRecoilState(authAtom);
+  // const [_, setUser] = useRecoilState(authAtom);
   const [showSidebar, setShowSidebar] = useState(false);
 
-  const handleNavigateAuthPage = () => {
-    router.push('/auth/login');
-  };
+  // const handleNavigateAuthPage = () => {
+  //   router.push('/auth/login');
+  // };
 
-  const handleLogOut = () => {
-    logout();
-    setUser(null);
-  };
+  // const handleLogOut = () => {
+  //   logout();
+  //   setUser(null);
+  // };
 
   return (
     <Navbar
