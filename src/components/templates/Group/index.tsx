@@ -7,7 +7,7 @@ import groupsAtom from '@state/group';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 import leadersAtom from '@state/leaders';
-import IntroduceSection from '@containers/sections/grouppage/Introduce';
+// import IntroduceSection from '@containers/sections/grouppage/Introduce';
 import MissionSection from '@containers/sections/grouppage/Mission';
 import AdvantageSection from '@containers/sections/grouppage/Advantage';
 
@@ -37,13 +37,13 @@ const GroupPage = () => {
         buttonLabel={`Become a member of ${data.title.toLowerCase()}`}
       />
       <div className="wrapper mb-20">
-        <IntroduceSection
+        {/* <IntroduceSection
           leaderDescription={data.leaderInfo.description}
           leaderTitle={data.leaderInfo.title}
           longDescription={data.longDescription}
           shortDescription={data.shortDescription}
           leaderInfo={leader}
-        />
+        /> */}
         <MissionSection title={data.title} data={data.data} />
         <AdvantageSection />
       </div>

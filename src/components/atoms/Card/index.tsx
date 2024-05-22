@@ -32,7 +32,7 @@ const SICCard = ({
   return (
     <Card
       className={clsx('bg-transparent transition-shadow duration-150 flex-1', {
-        'hover:shadow-primary': !disableHover,
+        'hover:shadow-glove': !disableHover,
       })}
     >
       <CardBody className="flex flex-col items-center px-4 pt-4 pb-16">
@@ -51,7 +51,7 @@ const SICCard = ({
 const SICProfileCard = (props: CardProfileType) => {
   const { image, name, description, social } = props;
   return (
-    <Card className="p-0 m-0 overflow-hidden bg-transparent border-b-2 duration-150 hover:shadow-primary border-primary">
+    <Card className="p-0 m-0 overflow-hidden bg-transparent border-b-2 duration-150 hover:shadow-glove border-primary">
       <CardHeader floated={false} className="h-80 m-0 rounded-none">
         <Image src={image} alt="profile-picture" fill className="overflow-hidden object-cover" />
       </CardHeader>

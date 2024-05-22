@@ -74,7 +74,7 @@ const Banner = ({
             <Play
               onClick={handleOpenVideoModal}
               color="#F57930"
-              className="ml-2 sm:ml-8 w-12 h-12 hover:shadow-primary rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
+              className="ml-2 sm:ml-8 w-12 h-12 hover:shadow-glove rounded-full cursor-pointer transition-shadow duration-150 border border-transparent hover:border-primary"
             />
           </div>
         </div>

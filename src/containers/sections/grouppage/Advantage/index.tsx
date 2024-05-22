@@ -46,7 +46,10 @@ const AdvantageSection = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14 mt-20">
         {ADVANTAGES.map((item) => (
-          <div className="grid gap-4 place-items-center" key={item.title}>
+          <div
+            className="grid gap-4 rounded-lg place-items-center p-5 cursor-pointer duration-150 hover:shadow-glove"
+            key={item.title}
+          >
             <span className="text-primary">{item.icon}</span>
             <span className="text-primary font-medium text-center text-md">{item.title}</span>
             <p className="text-center">{item.description}</p>

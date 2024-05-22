@@ -55,7 +55,7 @@ const SICSelect = ({
       <Button
         onClick={toggleOpenCollapse}
         ripple={false}
-        className="  text-sm w-full py-2 px-3 capitalize hover:shadow-primary shadow-none text-left flex justify-between bg-dark-main border border-text color-text focus:outline-none font-light text-text"
+        className="  text-sm w-full py-2 px-3 capitalize hover:shadow-glove shadow-none text-left flex justify-between bg-dark-main border border-text color-text focus:outline-none font-light text-text"
         style={
           toggleCollapse
             ? {

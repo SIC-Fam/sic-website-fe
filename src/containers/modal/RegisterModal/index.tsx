@@ -104,7 +104,7 @@ const RegisterModal = (props: RegisterModalProps) => {
     <>
       <SICModal
         style={{ width: '995px' }}
-        className="border border-primary shadow-primary"
+        className="border border-primary shadow-glove"
         {...props}
         onClose={handleClose}
       >

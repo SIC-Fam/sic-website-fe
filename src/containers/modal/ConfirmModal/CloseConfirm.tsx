@@ -11,7 +11,7 @@ const CloseConfirmModal = (props: CloseConfirmModalProps) => {
     props?.onClose();
   };
   return (
-    <SICModal {...props} style={{ zIndex: 99 }} className="border border-primary rounded-lg shadow-primary">
+    <SICModal {...props} style={{ zIndex: 99 }} className="border border-primary rounded-lg shadow-glove">
       <div className="flex flex-col p-14 gap-10">
         <Typography className="  text-xl text-center text-primary">Are you sure to cancel?</Typography>
         <div className="flex justify-between">

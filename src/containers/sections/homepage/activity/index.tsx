@@ -50,7 +50,7 @@ const ActivitySection = () => {
             })}
           >
             <div className="flex-1 relative h-80">
-              <Image className="object-cover object-center" fill sizes="100%" src={activity.image} alt="#" />
+              <Image className="object-cover object-center rounded-lg" fill sizes="100%" src={activity.image} alt="#" />
             </div>
             <div className="flex-1 py-8">
               <div

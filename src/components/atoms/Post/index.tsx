@@ -11,7 +11,7 @@ export type PostType = {
 const Post = (props: PostType) => {
   const { image, title, summary, datePublic } = props;
   return (
-    <Card className="bg-transparent overflow-hidden rounded-none hover:shadow-primary transition-shadow cursor-pointer duration-300">
+    <Card className="bg-transparent overflow-hidden rounded-none hover:shadow-glove transition-shadow cursor-pointer duration-300">
       <CardHeader floated={false} shadow={false} color="transparent" className="m-0 rounded-none h-[200px]">
         <Image
           src={image}
